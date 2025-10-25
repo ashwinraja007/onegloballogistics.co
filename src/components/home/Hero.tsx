@@ -5,16 +5,16 @@ const Hero = () => {
   const [isCustomerPortalOpen, setIsCustomerPortalOpen] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const sliderImages = [{
-    src: '/hom1.png',
-    text: 'COST EFFECTIVE AND TOP QUALITY LCL & FCL SERVICES'
+    src: '/h1.png',
+    text: 'Cost effective and top quality LCL & FCL services'
   }, {
-    src: '/hom2.png',
+    src: '/h2.png',
     text: 'Top-notch warehousing services for all your shipments'
   }, {
-    src: '/hom3.png',
+    src: '/h3.png',
     text: 'Get the best LCL & FCL services at unbeatable prices'
   }, {
-    src: '/hom4.png',
+    src: '/h4.png',
     text: 'Get the best logistics service at very competitive prices'
   }];
   useEffect(() => {
