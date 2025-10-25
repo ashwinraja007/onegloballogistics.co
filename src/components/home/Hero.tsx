@@ -1,160 +1,263 @@
-import React, { useState, useEffect } from 'react';
-import { Users, UserCircle, SearchCode, Ship, Calendar, Globe } from 'lucide-react';
-const Hero = () => {
+import React, { useEffect, useMemo, useState, useCallback } from "react";
+import { Users, UserCircle, SearchCode, Ship, Calendar } from "lucide-react";
+
+const SLIDER_IMAGES = [
+  { src: "/h1.png", text: "Cost-effective and top-quality LCL & FCL services" },
+  { src: "/h2.jpg", text: "Top-notch warehousing services for all your shipments" },
+  { src: "/h3.jpg", text: "Get the best LCL & FCL services at unbeatable prices" },
+  { src: "/h4.png", text: "Get the best logistics service at very competitive prices" },
+] as const;
+
+const PORTAL_LINKS = [
+  {
+    icon: Users,
+    title: "Customer Portal",
+    description: "Access shipping dashboard",
+    kind: "modal" as const,
+  },
+  {
+    icon: UserCircle,
+    title: "Partner Portal",
+    description: "Manage partnership",
+    href: "https://pp.onlinetracking.co/auth/login/3",
+    external: true,
+  },
+  {
+    icon: SearchCode,
+    title: "Tracking",
+    description: "Track your shipment",
+    href: "http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:102:::::P0_GROUP_RID:59",
+    external: true,
+  },
+  {
+    icon: Ship,
+    title: "Sailing Schedule",
+    description: "View schedules",
+    href: "http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:104:::::P0_GROUP_RID:59",
+    external: true,
+  },
+  {
+    icon: Calendar,
+    title: "Online Quote",
+    description: "Request a quote",
+    href: "/contact",
+    external: false,
+  },
+] as const;
+
+const Hero: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isCustomerPortalOpen, setIsCustomerPortalOpen] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
-  const sliderImages = [{
-    src: '/h1.png',
-    text: 'Cost effective and top quality LCL & FCL services'
-  }, {
-    src: '/h2.jpg',
-    text: 'Top-notch warehousing services for all your shipments'
-  }, {
-    src: '/h3.jpg',
-    text: 'Get the best LCL & FCL services at unbeatable prices'
-  }, {
-    src: '/h4.png',
-    text: 'Get the best logistics service at very competitive prices'
-  }];
+
+  // one-time entrance
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 300);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setIsVisible(true), 200);
+    return () => clearTimeout(t);
   }, []);
+
+  // auto-rotate slider (pause if tab is hidden)
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveSlide(prev => (prev + 1) % sliderImages.length);
+    const next = () =>
+      setActiveSlide((prev) => (prev + 1) % SLIDER_IMAGES.length);
+
+    const id = setInterval(() => {
+      if (!document.hidden) next();
     }, 5000);
-    return () => clearInterval(interval);
-  }, [sliderImages.length]);
-  const portalLinks = [{
-    icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Customer Portal',
-    description: 'Access shipping dashboard',
-    onClick: () => setIsCustomerPortalOpen(true)
-  }, {
-    icon: <UserCircle className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Partner Portal',
-    description: 'Manage partnership',
-    url: 'https://pp.onlinetracking.co/auth/login/3',
-    external: true
-  }, {
-    icon: <SearchCode className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Tracking',
-    description: 'Track your shipment',
-    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:102:::::P0_GROUP_RID:59',
-    external: true
-  }, {
-    icon: <Ship className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Sailing Schedule',
-    description: 'View schedules',
-    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:104:::::P0_GROUP_RID:59',
-    external: true
-  }, {
-    icon: <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Online Quote',
-    description: 'Request a quote',
-    url: '/contact',
-    external: false
-  }];
-  return <section className="relative min-h-screen overflow-hidden pt-8 md:pt-16">
+
+    return () => clearInterval(id);
+  }, []);
+
+  const onOpenCustomerPortal = useCallback(() => {
+    setIsCustomerPortalOpen(true);
+  }, []);
+
+  const onCloseCustomerPortal = useCallback(() => {
+    setIsCustomerPortalOpen(false);
+  }, []);
+
+  // build links (stable)
+  const portalLinks = useMemo(
+    () =>
+      PORTAL_LINKS.map((l) => ({
+        ...l,
+        aria: `${l.title}: ${l.description}`,
+      })),
+    []
+  );
+
+  return (
+    <section className="relative min-h-screen overflow-hidden pt-8 md:pt-16">
       {/* Background Slider */}
       <div className="absolute inset-0 overflow-hidden">
-        {sliderImages.map((slide, index) => <div key={index} className={`absolute inset-0 transition-opacity duration-1200 ease-in-out ${activeSlide === index ? 'opacity-100' : 'opacity-0'}`} style={{
-        zIndex: activeSlide === index ? 1 : 0
-      }}>
-            <img src={slide.src} alt={slide.text} className="w-full h-full object-cover object-center" loading={index === 0 ? 'eager' : 'lazy'} />
-          </div>)}
+        {SLIDER_IMAGES.map((slide, index) => (
+          <div
+            key={slide.src}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              activeSlide === index ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ zIndex: activeSlide === index ? 1 : 0 }}
+            aria-hidden={activeSlide !== index}
+          >
+            <img
+              src={slide.src}
+              alt=""
+              className="h-full w-full object-cover object-[50%_40%]"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
+            />
+          </div>
+        ))}
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-[1]" />
+      {/* Overlay (gradient scrim for contrast) */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-tr from-black/70 via-black/40 to-black/20" />
 
-      {/* Main Content - Vertically Shifted Up */}
-      <div className="absolute inset-0 flex items-center justify-start z-[2]">
-        <div className="container mx-auto h-full flex items-center px-4 md:px-6 lg:px-8">
-          <div className={`max-w-2xl space-y-4 md:space-y-5 text-left transition-all duration-800 transform ${isVisible ? 'opacity-100 -translate-y-[3%]' : 'opacity-0 translate-y-10'}`}>
-            
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight lg:text-4xl">
-              {sliderImages[activeSlide].text}
+      {/* Main Content */}
+      <div className="absolute inset-0 z-[2] flex items-center justify-start">
+        <div className="container mx-auto h-full px-4 md:px-6 lg:px-8 flex items-center">
+          <div
+            className={`max-w-2xl text-left transition-all duration-700 transform ${
+              isVisible ? "opacity-100 -translate-y-[3%]" : "opacity-0 translate-y-6"
+            }`}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-tight text-white">
+              {SLIDER_IMAGES[activeSlide].text}
             </h1>
+
+            {/* Optional supporting line – uncomment if needed */}
+            {/* <p className="mt-3 max-w-xl text-white/80">
+              Secure storage, fast pick-pack, and seamless last-mile—integrated with tracking across regions.
+            </p> */}
           </div>
         </div>
       </div>
 
       {/* Portal Buttons */}
       <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 z-[10] px-2 sm:px-4">
-        <div className={`max-w-7xl mx-auto transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="bg-white/0 p-3 sm:p-4 my-[31px]">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3">
-              {portalLinks.map((link, index) => <div key={index} className="flex flex-col items-center">
-                  {link.external ? <a href={link.url} target="_blank" rel="noopener noreferrer" className="w-full">
-                      <button className="w-full h-12 sm:h-14 md:h-16 flex flex-col gap-1 items-center justify-center text-xs sm:text-sm transition-all duration-300 rounded-lg shadow-sm hover:shadow-md hover:scale-105 text-slate-50 bg-brand-navy">
-                        {link.icon}
-                        <span className="font-medium leading-none">{link.title}</span>
-                      </button>
-                    </a> : link.onClick ? <button onClick={link.onClick} className="w-full h-12 sm:h-14 md:h-16 flex flex-col gap-1 items-center justify-center text-xs sm:text-sm transition-all duration-300 rounded-lg shadow-sm hover:shadow-md hover:scale-105 bg-brand-navy text-slate-50">
-                      {link.icon}
+        <div
+          className={`mx-auto max-w-7xl transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          <div className="p-3 sm:p-4">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 sm:gap-3">
+              {portalLinks.map((link) => {
+                const Icon = link.icon;
+                const baseClasses =
+                  "w-full h-12 sm:h-14 md:h-16 rounded-lg shadow-sm text-xs sm:text-sm inline-flex flex-col items-center justify-center gap-1 transition-transform duration-200 hover:shadow-md hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 bg-brand-navy text-slate-50";
+
+                if (link.kind === "modal") {
+                  return (
+                    <button
+                      key={link.title}
+                      type="button"
+                      onClick={onOpenCustomerPortal}
+                      aria-label={link.aria}
+                      className={baseClasses}
+                    >
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                       <span className="font-medium leading-none">{link.title}</span>
-                    </button> : <a href={link.url} className="w-full">
-                      <button className="w-full h-12 sm:h-14 md:h-16 flex flex-col gap-1 items-center justify-center text-xs sm:text-sm transition-all duration-300 rounded-lg shadow-sm hover:shadow-md hover:scale-105 text-brand-lightGray bg-brand-navy">
-                        {link.icon}
-                        <span className="font-medium leading-none">{link.title}</span>
-                      </button>
-                    </a>}
-                </div>)}
+                    </button>
+                  );
+                }
+
+                return (
+                  <a
+                    key={link.title}
+                    href={link.href}
+                    {...(link.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    aria-label={link.aria}
+                    className={baseClasses}
+                  >
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                    <span className="font-medium leading-none">{link.title}</span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
 
       {/* Customer Portal Modal */}
-      {isCustomerPortalOpen && <div className="fixed inset-0 bg-black/50 z-[50] flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      {isCustomerPortalOpen && (
+        <div
+          className="fixed inset-0 z-[50] flex items-center justify-center bg-black/50 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="customer-portal-title"
+        >
+          <div className="w-full max-h-[90vh] max-w-2xl overflow-y-auto rounded-lg bg-white">
             <div className="p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold text-blue-900">Customer Portal</h2>
-                <button onClick={() => setIsCustomerPortalOpen(false)} className="text-gray-500 hover:text-gray-700 text-2xl">
+              <div className="mb-4 flex items-center justify-between">
+                <h2
+                  id="customer-portal-title"
+                  className="text-xl font-bold text-blue-900"
+                >
+                  Customer Portal
+                </h2>
+                <button
+                  type="button"
+                  onClick={onCloseCustomerPortal}
+                  className="text-2xl text-gray-500 hover:text-gray-700"
+                  aria-label="Close customer portal"
+                >
                   ×
                 </button>
               </div>
 
               <div className="space-y-4">
                 <h3 className="font-medium text-gray-800">Tutorial Videos</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[{
-                src: '/GGL_demo1.mp4',
-                label: 'Getting Started'
-              }, {
-                src: '/GGL_promo.mp4',
-                label: 'Advanced Features'
-              }].map((video, i) => <div key={i} className="border rounded-lg overflow-hidden">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  {[
+                    { src: "/GGL_demo1.mp4", label: "Getting Started" },
+                    { src: "/GGL_promo.mp4", label: "Advanced Features" },
+                  ].map((video) => (
+                    <div key={video.src} className="overflow-hidden rounded-lg border">
                       <div className="aspect-video">
-                        <video controls className="w-full h-full object-cover">
+                        <video
+                          className="h-full w-full object-cover"
+                          controls
+                          preload="metadata"
+                        >
                           <source src={video.src} type="video/mp4" />
                           Your browser does not support the video tag.
                         </video>
                       </div>
-                      <div className="p-2 bg-gray-50 text-sm font-medium">{video.label}</div>
-                    </div>)}
+                      <div className="bg-gray-50 p-2 text-sm font-medium">
+                        {video.label}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Button Section */}
-              <div className="mt-6 flex justify-end gap-4">
-                <button onClick={() => setIsCustomerPortalOpen(false)} className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400">
+              <div className="mt-6 flex justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={onCloseCustomerPortal}
+                  className="rounded-md bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300"
+                >
                   Cancel
                 </button>
-                <a href="https://cp.onlinetracking.co/#/login/3" target="_blank" rel="noopener noreferrer">
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                    Login
-                  </button>
+                <a
+                  href="https://cp.onlinetracking.co/#/login/3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+                >
+                  Login
                 </a>
               </div>
             </div>
           </div>
-        </div>}
-    </section>;
+        </div>
+      )}
+    </section>
+  );
 };
+
 export default Hero;
