@@ -7,7 +7,10 @@ const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const sliderImages = [
-    '/hom1.png'
+    { src: '/hom1.png', text: 'COST EFFECTIVE AND TOP QUALITY LCL & FCL SERVICES' },
+    { src: '/hom2.png', text: 'Top-notch warehousing services for all your shipments' },
+    { src: '/hom3.png', text: 'Get the best LCL & FCL services at unbeatable prices' },
+    { src: '/hom4.png', text: 'Get the best logistics service at very competitive prices' }
   ];
 
   useEffect(() => {
@@ -63,7 +66,7 @@ const Hero = () => {
     <section className="relative min-h-screen overflow-hidden pt-8 md:pt-16">
       {/* Background Slider */}
       <div className="absolute inset-0 overflow-hidden">
-        {sliderImages.map((image, index) => (
+        {sliderImages.map((slide, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1200 ease-in-out ${
@@ -72,8 +75,8 @@ const Hero = () => {
             style={{ zIndex: activeSlide === index ? 1 : 0 }}
           >
             <img
-              src={image}
-              alt={`Slide ${index + 1}`}
+              src={slide.src}
+              alt={slide.text}
               className="w-full h-full object-cover object-center"
               loading={index === 0 ? 'eager' : 'lazy'}
             />
@@ -102,13 +105,8 @@ const Hero = () => {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Delivering Excellence in <span className="text-yellow-500">Global Logistics</span> Solutions
+              {sliderImages[activeSlide].text}
             </h1>
-
-            <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-xl">
-              GGL brings over 25 years of expertise in international logistics,
-              offering comprehensive solutions tailored to your business needs.
-            </p>
           </div>
         </div>
       </div>

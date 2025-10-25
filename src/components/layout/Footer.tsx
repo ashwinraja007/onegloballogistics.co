@@ -44,25 +44,8 @@ export const Footer = () => {
     }
   };
   const addresses: AddressInfo[] = [{
-    title: "Chennai Office",
-    address: "Old No. G1, New G3, KAIZEN, 2nd & 3rd Floor, Plot No. 565Q, G Block, Anna Nagar East, Chennai, Tamil Nadu – 600102",
-    phone: "+91 9123523496"
-  }, {
-    title: "Mumbai Office",
-    address: "407, Mayuresh Planet, Plot No. 42 & 43, Sector-15, CBD Belapur, Navi Mumbai, Maharashtra – 400614",
-    phone: ["Export: +91 2245174102, +91 2245174109, +91 2245174118", "Export Docs: +91 2245174103, +91 2245174105", "Import Docs: +91 2245174104, +91 2245174106", "Import Support: +91 2245174113, +91 2245174110, +91 2245174107, +91 2245174112"]
-  }, {
-    title: "New Delhi Office",
-    address: "JA 511, DLF Tower A, Jasola District Centre, New Delhi – 110025",
-    phone: "+91 9999022030"
-  }, {
-    title: "Bangalore Office",
-    address: "No 2M-216, First Floor, 2nd Main, East Of NGEF Layout, Kasturinagar, Bangalore – 560043",
-    phone: "+91 9986949743"
-  }, {
-    title: "Kolkata Office",
-    address: "Room No. 29, 4th Floor, 6, Jawaharlal Nehru Road, Siddha Esplanade, Adjacent to Metro Central (Previously Metro Cinema), Kolkata, West Bengal – 700013",
-    phone: "+91 6290921534"
+    title: "Dubai Office",
+    address: "One Global Logistics LLC, Jebel Ali Free Zone, South Street, Dubai, UAE"
   }];
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const handleNext = () => {
@@ -78,11 +61,10 @@ export const Footer = () => {
           once: true
         }} variants={footerAnimation} className="flex flex-col items-start">
             <div className="mb-4">
-              <img src="/lovable-uploads/GGL.png" alt="GGL Logo" className="h-14 w-auto object-contain" loading="lazy" />
-              <img src="/1GlobalEnterprises.png" alt="1 Global Enterprises Logo" className="h-10 w-auto object-contain mt-2" />
+              <img src="/ogl-logo.png" alt="One Global Logistics" className="h-16 w-auto object-contain" loading="lazy" />
             </div>
             <p className="text-sm md:text-base text-gray-600 max-w-xs text-left">
-              At GGL, we are proud to be one of Singapore's leading logistics companies...
+              Leading NVOCC operator providing LCL consolidation services to worldwide markets with dedication and transparency.
             </p>
             <div className="flex space-x-3 mt-4">
               <motion.a href="https://www.facebook.com/gglusa" target="_blank" rel="noopener noreferrer" className="bg-brand-navy text-white p-2 rounded-full hover:bg-brand-gold transition" whileHover={{
@@ -175,7 +157,7 @@ export const Footer = () => {
         </div>
 
         <div className="text-center text-gray-600 mt-10 text-sm">
-          &copy; {new Date().getFullYear()} GGL. All Rights Reserved.
+          &copy; {new Date().getFullYear()} One Global Logistics. All Rights Reserved.
         </div>
       </div>
     </footer>;
