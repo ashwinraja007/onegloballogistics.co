@@ -87,7 +87,7 @@ export const Header = () => {
             <CountrySelector />
 
             {/* ✅ Get A Quote Button - scroll to form */}
-            <button onClick={() => handleNavClick("/contact", "contact-form")} className="px-5 py-2 rounded-full transition font-medium bg-slate-900 hover:bg-slate-800 text-slate-50">
+            <button onClick={() => handleNavClick("/contact", "contact-form")} className="px-5 py-2 transition font-medium bg-slate-900 hover:bg-slate-800 text-slate-50 rounded-xl">
               Get A Quote
             </button>
           </nav>
