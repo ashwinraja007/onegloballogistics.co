@@ -65,6 +65,7 @@ export default {
 				},
 				brand: {
 					navy: '#0A1E3C',
+					gold: '#D4AF37',
 					white: '#FFFFFF',
 					darkGray: '#333333',
 					lightGray: '#F5F5F5',
