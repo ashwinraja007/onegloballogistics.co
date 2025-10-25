@@ -51,7 +51,7 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <img src="/ogl-logo.png" alt="One Global Logistics" onClick={handleLogoClick} className="h-14 w-auto cursor-pointer transition-all duration-300 object-contain" />
+            <img src="/ogl-logo.png" alt="One Global Logistics" onClick={handleLogoClick} className="h-22 w-auto cursor-pointer transition-all duration-300 object-contain" />
           </div>
 
           <button className="md:hidden text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-gold rounded-md p-1" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
