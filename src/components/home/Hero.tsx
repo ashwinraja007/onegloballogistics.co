@@ -5,7 +5,7 @@ const Hero = () => {
   const [isCustomerPortalOpen, setIsCustomerPortalOpen] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const sliderImages = [{
-    src: '/h1.png',
+    src: '/h1.jpg',
     text: 'Cost effective and top quality LCL & FCL services'
   }, {
     src: '/h2.jpg',
