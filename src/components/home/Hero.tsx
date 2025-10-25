@@ -8,10 +8,10 @@ const Hero = () => {
     src: '/h1.png',
     text: 'Cost effective and top quality LCL & FCL services'
   }, {
-    src: '/h2.png',
+    src: '/h2.jpg',
     text: 'Top-notch warehousing services for all your shipments'
   }, {
-    src: '/h3.png',
+    src: '/h3.jpg',
     text: 'Get the best LCL & FCL services at unbeatable prices'
   }, {
     src: '/h4.png',
