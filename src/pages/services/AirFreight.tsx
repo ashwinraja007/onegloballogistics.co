@@ -107,7 +107,7 @@ const AirFreight = () => {
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
-              {[{
+            {[{
               icon: <Clock className="h-10 w-10 text-brand-gold" />,
               title: "Time-Definite Deliveries",
               description: "Flexible options including next-flight-out, express, and deferred services to meet critical timelines."
@@ -127,7 +127,20 @@ const AirFreight = () => {
               icon: <Headset className="h-10 w-10 text-brand-gold" />,
               title: "Customs Clearance Support",
               description: "End-to-end handling of documentation, customs brokerage, and compliance to streamline international transit."
-            }].map((feature, index) => {})}
+            }].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              >
+                <div className="mb-4">{feature.icon}</div>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </motion.div>
+            ))}
             </div>
 
             {/* CTA Section */}
