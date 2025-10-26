@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,11 +27,10 @@ const queryClient = new QueryClient();
 
 // App component as a regular function component
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
+  return <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <BrowserRouter>
-          <ScrollToTop />
+          <ScrollToTop className="bg-brand-navy text-slate-50" />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />
@@ -57,8 +55,6 @@ function App() {
           <Sonner />
         </BrowserRouter>
       </TooltipProvider>
-    </QueryClientProvider> 
-  );
+    </QueryClientProvider>;
 }
-
 export default App;
