@@ -52,7 +52,7 @@ const AboutUs = () => {
           once: true
         }} className="order-1 md:order-2 flex justify-center">
             <div className="w-full max-w-md aspect-square overflow-hidden rounded-lg shadow-lg">
-              <img alt="About Us" loading="lazy" className="w-full h-full object-cover rounded-lg" src="/worldmap.png" />
+              <img alt="About Us" loading="lazy" className="w-full h-full object-cover rounded-lg" src="/about.jpg" />
             </div>
           </motion.div>
         </motion.div>
