@@ -117,7 +117,7 @@ export const QuickEnquiry = () => {
               )}
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="fullName" className="text-gray-700 flex items-center gap-2">
                       <User className="h-4 w-4 text-[#0B1739]" />
@@ -155,7 +155,7 @@ export const QuickEnquiry = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-gray-700 flex items-center gap-2">
                       <Mail className="h-4 w-4 text-[#0B1739]" />
@@ -266,7 +266,7 @@ export const QuickEnquiry = () => {
             <div className="pointer-events-none absolute left-4 top-4">
               <div className="flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 shadow-sm ring-1 ring-gray-200">
                 <img src="/ogl-logo.png" alt="One Global" className="h-4 w-auto" />
-                <span className="text-xs font-medium text-[#0B1739]">Dubai • JAFZA South</span>
+                <span className="text-xs font-medium text-[#0B1739]">Dubai • Jebel Ali Free Zone</span>
               </div>
             </div>
 
