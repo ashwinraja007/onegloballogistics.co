@@ -12,51 +12,45 @@ import {
   ArrowRight
 } from "lucide-react";
 
-// ================================================================
-//  One Global Card Component
-// ================================================================
 const OneGlobalCard = ({ image, title, description, icon, link }) => {
   return (
     <motion.div
       whileHover={{ y: -4 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
-      className="group relative rounded-xl overflow-hidden bg-gradient-to-b from-[#0B1739] to-[#0E224B] border border-[#24356B]/60 shadow-[0_10px_25px_rgba(0,0,0,0.25)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.35)]"
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300"
     >
-      {/* ============== Image Section ============== */}
+      {/* Image */}
       <div className="relative">
         <AspectRatio ratio={16 / 9}>
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-all duration-500"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
         </AspectRatio>
 
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1739] via-transparent to-transparent" />
-
-        {/* Top-left logo badge */}
-        <div className="absolute top-3 left-3 flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-sm">
+        {/* Logo badge */}
+        <div className="absolute top-3 left-3 flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-sm">
           <img src="/ogl-logo.png" alt="One Global Logo" className="h-4 w-auto" />
         </div>
       </div>
 
-      {/* ============== Content Section ============== */}
-      <div className="p-5 flex flex-col gap-2 text-white">
-        <div className="flex items-center gap-2 text-[#F6B100]">
+      {/* Content */}
+      <div className="flex flex-col flex-grow p-5 text-[#0B1739]">
+        <div className="flex items-center gap-2 text-[#0B1739] font-semibold">
           {React.cloneElement(icon, { size: 16 })}
-          <h3 className="text-base font-semibold tracking-wide">{title}</h3>
+          <h3 className="text-base font-semibold">{title}</h3>
         </div>
 
-        <p className="text-xs text-gray-300 leading-snug line-clamp-3">
+        <p className="text-sm text-gray-600 mt-2 flex-grow leading-snug">
           {description}
         </p>
 
         <Link
           to={link}
-          className="inline-flex items-center text-[13px] text-[#F6B100] font-medium mt-1 group-hover:underline"
+          className="inline-flex items-center text-sm text-[#0B1739] font-medium mt-3 group"
           onClick={() => window.scrollTo(0, 0)}
         >
           Learn More
@@ -73,9 +67,6 @@ const OneGlobalCard = ({ image, title, description, icon, link }) => {
   );
 };
 
-// ================================================================
-//  One Global Services Section
-// ================================================================
 export const Services = () => {
   const location = useLocation();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
@@ -138,34 +129,35 @@ export const Services = () => {
       className="bg-[#F8F9FB] py-10"
     >
       <div className="max-w-6xl mx-auto px-4">
-        {/* ============== Section Header ============== */}
-        <motion.div variants={item} className="text-center mb-8">
+        {/* Header */}
+        <motion.div variants={item} className="text-center mb-10">
           <h2 className="text-3xl font-bold text-[#0B1739]">
             One Global — Core Services
           </h2>
-          <div className="w-24 h-1 bg-[#F6B100] mx-auto mt-3 mb-4"></div>
+          <div className="w-24 h-1 bg-[#0B1739] mx-auto mt-3 mb-4"></div>
           <p className="text-sm md:text-base text-gray-600">
             Focused capabilities engineered for reliability, speed, and control.
           </p>
         </motion.div>
 
-        {/* ============== Services Grid ============== */}
+        {/* Services Grid */}
         <motion.div
           variants={container}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center"
         >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               variants={item}
               transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="w-full sm:w-[95%] lg:w-[95%]"
             >
               <OneGlobalCard {...service} />
             </motion.div>
           ))}
         </motion.div>
 
-        {/* ============== Explore Button ============== */}
+        {/* Button */}
         <motion.div variants={item} className="flex justify-center mt-10">
           <Link to="/one-global">
             <Button
@@ -173,7 +165,7 @@ export const Services = () => {
               className="bg-[#0B1739] text-white hover:bg-[#13285A] text-sm px-6 py-2 rounded-full flex items-center gap-2"
             >
               Explore All Services
-              <ArrowRight className="h-4 w-4 text-[#F6B100]" />
+              <ArrowRight className="h-4 w-4 text-white" />
             </Button>
           </Link>
         </motion.div>
