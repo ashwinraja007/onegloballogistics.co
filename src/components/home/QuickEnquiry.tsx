@@ -231,12 +231,7 @@ export const QuickEnquiry = () => {
 
                 {/* Contact chips (adds richness) */}
                 <div className="mt-4 flex flex-wrap gap-2 text-xs">
-                  <span className="rounded-full border border-gray-200 bg-white px-2.5 py-1 text-gray-600">
-                    Business Hours: Mon–Fri
-                  </span>
-                  <span className="rounded-full border border-gray-200 bg-white px-2.5 py-1 text-gray-600">
-                    Response Time: &lt; 24 hrs
-                  </span>
+
                 </div>
               </form>
             </div>
