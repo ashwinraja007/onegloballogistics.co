@@ -11,34 +11,39 @@ import {
   Construction,
   ArrowRight
 } from "lucide-react";
-import oglLogo from "@/assets/ogl-logo.png"; // use your uploaded logo
 
+// ================================================================
+//  One Global Card Component
+// ================================================================
 const OneGlobalCard = ({ image, title, description, icon, link }) => {
   return (
     <motion.div
       whileHover={{ y: -4 }}
       whileTap={{ scale: 0.985 }}
-      transition={{ type: "spring", stiffness: 200, damping: 18 }}
-      className="group relative rounded-xl overflow-hidden bg-gradient-to-b from-[#0B1739] to-[#0E224B] border border-[#24356B]/60 shadow-[0_10px_25px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.35)]"
+      transition={{ type: "spring", stiffness: 220, damping: 20 }}
+      className="group relative rounded-xl overflow-hidden bg-gradient-to-b from-[#0B1739] to-[#0E224B] border border-[#24356B]/60 shadow-[0_10px_25px_rgba(0,0,0,0.25)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.35)]"
     >
-      {/* Image */}
+      {/* ============== Image Section ============== */}
       <div className="relative">
         <AspectRatio ratio={16 / 9}>
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500"
+            className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-all duration-500"
+            loading="lazy"
           />
         </AspectRatio>
-        {/* Overlay fade */}
+
+        {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B1739] via-transparent to-transparent" />
-        {/* One Global badge */}
+
+        {/* Top-left logo badge */}
         <div className="absolute top-3 left-3 flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-sm">
-          <img src={oglLogo} alt="One Global Logo" className="h-4 w-auto" />
+          <img src="/ogl-logo.png" alt="One Global Logo" className="h-4 w-auto" />
         </div>
       </div>
 
-      {/* Content */}
+      {/* ============== Content Section ============== */}
       <div className="p-5 flex flex-col gap-2 text-white">
         <div className="flex items-center gap-2 text-[#F6B100]">
           {React.cloneElement(icon, { size: 16 })}
@@ -68,6 +73,9 @@ const OneGlobalCard = ({ image, title, description, icon, link }) => {
   );
 };
 
+// ================================================================
+//  One Global Services Section
+// ================================================================
 export const Services = () => {
   const location = useLocation();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
@@ -130,6 +138,7 @@ export const Services = () => {
       className="bg-[#F8F9FB] py-10"
     >
       <div className="max-w-6xl mx-auto px-4">
+        {/* ============== Section Header ============== */}
         <motion.div variants={item} className="text-center mb-8">
           <h2 className="text-3xl font-bold text-[#0B1739]">
             One Global — Core Services
@@ -140,6 +149,7 @@ export const Services = () => {
           </p>
         </motion.div>
 
+        {/* ============== Services Grid ============== */}
         <motion.div
           variants={container}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -155,6 +165,7 @@ export const Services = () => {
           ))}
         </motion.div>
 
+        {/* ============== Explore Button ============== */}
         <motion.div variants={item} className="flex justify-center mt-10">
           <Link to="/one-global">
             <Button
