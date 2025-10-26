@@ -118,7 +118,7 @@ export const Services = () => {
   return <motion.section initial="hidden" whileInView="visible" viewport={{
     once: true,
     amount: 0.1
-  }} variants={container} className="bg-[#F8F9FB] py-15">
+  }} variants={container} className="bg-[#F8F9FB] py-18">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.div variants={item} className="text-center mb-10">
@@ -140,14 +140,7 @@ export const Services = () => {
         </motion.div>
 
         {/* Button */}
-        <motion.div variants={item} className="flex justify-center mt-10">
-          <Link to="/one-global">
-            <Button variant="navy" className="bg-[#0B1739] text-white hover:bg-[#13285A] text-sm px-6 py-2 rounded-full flex items-center gap-2">
-              Explore All Services
-              <ArrowRight className="h-4 w-4 text-white" />
-            </Button>
-          </Link>
-        </motion.div>
+       
       </div>
     </motion.section>;
 };
