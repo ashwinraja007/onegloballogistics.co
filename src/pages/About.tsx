@@ -3,7 +3,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Globe, Ship, Truck, Package, Clock, Shield, Target, Users, Award, CheckCircle } from 'lucide-react';
+import { Globe, Ship, Truck, Package, Clock, Shield, Target, Users, Award, CheckCircle, Warehouse } from 'lucide-react';
 const About = () => {
   return <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
@@ -22,10 +22,10 @@ const About = () => {
             duration: 0.8
           }} className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-50">
-                About <span className="text-slate-50">GGL</span>
+                About <span className="text-slate-50">One Global Logistics</span>
               </h1>
               <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-slate-50">
-                Singapore's premier logistics company, offering specialized expertise across warehousing, freight forwarding, and transportation
+                Qatar-based global NVOCC operator providing LCL consolidation services to worldwide markets
               </p>
             </motion.div>
           </div>
@@ -51,18 +51,13 @@ const About = () => {
                 </h2>
                 <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
                   <p>
-                    GGL is a trusted global leader in LCL (Less-than-Container Load) consolidation. With a robust presence across
-                    <strong> North America, the UK, the Middle East, the Indian Subcontinent, Southeast Asia, and the Far East,</strong> we offer streamlined groupage services backed by strong customer support and competitive pricing.
+                    One Global Logistics services W.L.L is a Qatar-based global NVOCC (Non-vessel owned common carrier) operator providing LCL consolidation services worldwide markets. We at OGL have a well experienced and established team with relevant experience in their own dedicated trade lanes supporting our customers with all their special requirements with complete dedication and transparency.
                   </p>
                   <p>
-                    We are strategically positioned in major transshipment hubs like
-                    <strong> Singapore, Malaysia, Sri Lanka, and Dubai,</strong> GGL operates <strong>direct weekly sailings</strong> to key global ports.
+                    Our commitment to honest, transparent business practice and pricing, backed by a network of experienced and trusted agents from around the world, makes us one of the fast-growing consolidators based in Qatar.
                   </p>
                   <p>
-                    One of our standout services is <strong>neutral LCL consolidation</strong>, designed for freight forwarders and NVOCCs who require confidential and competitive solutions.
-                  </p>
-                  <p>
-                    Our advanced technology platform offers end-to-end shipment visibility. GGL stands as a dependable partner committed to neutrality, excellence, and customer success.
+                    We are well-positioned to manage your LCL business with full attention. We aim at providing secured end-to-end LCL services to the Freight Forwarding/Logistics Companies in Qatar, ensuring to maintain trust and not entertain direct customer business.
                   </p>
                 </div>
               </motion.div>
@@ -105,24 +100,28 @@ const About = () => {
           <div className="max-w-7xl mx-auto space-y-16">
             {/* Logistics Services */}
             <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Comprehensive Logistics Services</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Services</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[{
-                title: "Air & Ocean Freight (LCL & FCL)",
-                description: "Complete import and export solutions for all cargo types.",
+                title: "FCL (Full Container Load)",
+                description: "Dedicated containers for your cargo with fixed schedules.",
                 icon: Ship
               }, {
-                title: "Dangerous Goods Handling",
-                description: "Specialized expertise in hazardous materials transportation.",
-                icon: Shield
-              }, {
-                title: "Warehousing, Distribution & 3PL",
-                description: "Secure storage and comprehensive third-party logistics solutions.",
+                title: "LCL (Less than Container Load)",
+                description: "Shared container services with reliable weekly sailings.",
                 icon: Package
               }, {
-                title: "Domestic & Cross-Border Land Transport",
-                description: "Efficient ground transportation across regions.",
+                title: "3PL (Third-Party Logistics)",
+                description: "End-to-end logistics outsourcing and distribution.",
                 icon: Truck
+              }, {
+                title: "CFS (Container Freight Station)",
+                description: "Secure CFS operations for stuffing and de-stuffing.",
+                icon: Warehouse
+              }, {
+                title: "Project Logistics",
+                description: "Specialized handling for heavy-lift and ODC cargo.",
+                icon: Shield
               }].map(({
                 title,
                 description,
@@ -143,22 +142,18 @@ const About = () => {
 
             {/* Who We Serve */}
             <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Who We Serve (Neutral Consolidation)</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Who We Serve</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[{
                 title: "Freight Forwarders",
                 description: "Trusted partners for global shipping solutions.",
                 icon: Globe
               }, {
-                title: "Custom Brokers",
-                description: "Reliable consolidation services for customs clearance.",
-                icon: CheckCircle
-              }, {
                 title: "NVOCCs",
                 description: "Neutral support for non-vessel operating common carriers.",
                 icon: Users
               }, {
-                title: "3PL Providers",
+                title: "Logistics Companies",
                 description: "Comprehensive logistics partnership for third-party providers.",
                 icon: Target
               }].map(({

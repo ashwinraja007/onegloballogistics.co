@@ -111,7 +111,7 @@ const GlobalPresence = () => {
             repeat: Infinity,
             ease: "linear"
           }}>
-              <Globe className="h-10 w-10 text-brand-gold" />
+              <Globe className="h-10 w-10 text-white" />
             </motion.div>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-50">Global Presence</h2>
           </motion.div>
@@ -142,7 +142,7 @@ const GlobalPresence = () => {
           }} transition={{
             repeat: Infinity,
             duration: 1.5
-          }} className="inline-flex items-center gap-2 text-brand-navy text-lg font-bold rounded-lg shadow-lg hover:shadow-gold-glow transition-all duration-300 px-6 py-3 bg-brand-white">
+          }} className="inline-flex items-center gap-2 text-brand-navy text-lg font-bold rounded-lg shadow-lg hover:shadow-navy-glow transition-all duration-300 px-6 py-3 bg-brand-white">
               Explore Our Global Network <ExternalLink size={20} />
             </motion.button>
           </Link>

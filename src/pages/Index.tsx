@@ -12,7 +12,7 @@ const QuickEnquiry = lazy(() => import("@/components/home/QuickEnquiry"));
 
 // Loading component
 const LoadingComponent = () => <div className="flex items-center justify-center min-h-[100px]">
-    <Loader2 className="h-6 w-6 animate-spin text-brand-gold" />
+    <Loader2 className="h-6 w-6 animate-spin text-brand-navy" />
   </div>;
 const Index = () => {
   return <div className="min-h-screen flex flex-col relative">
@@ -21,7 +21,7 @@ const Index = () => {
         <Hero />
         
         <Suspense fallback={<LoadingComponent />}>
-          <AboutUs className="py-16" />
+          <AboutUs />
         </Suspense>
         
         <Suspense fallback={<LoadingComponent />}>

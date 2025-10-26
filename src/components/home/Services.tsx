@@ -69,7 +69,7 @@ export const Services = () => {
       description:
         "Dedicated containers for your cargo with fixed schedules, secure stuffing, and full visibility across major trade lanes.",
       icon: <Boxes />,
-      link: "/one-global/fcl",
+      link: "/services/fcl",
     },
     {
       image: "/lcl.png",
@@ -77,7 +77,7 @@ export const Services = () => {
       description:
         "Shared container services with reliable weekly sailings, optimized consolidation, and smooth deconsolidation at destination.",
       icon: <Package />,
-      link: "/one-global/lcl",
+      link: "/services/lcl",
     },
     {
       image: "/3pl.png",
@@ -85,7 +85,7 @@ export const Services = () => {
       description:
         "End-to-end logistics outsourcing — inventory, order fulfillment, and scalable distribution with advanced visibility.",
       icon: <Truck />,
-      link: "/one-global/3pl",
+      link: "/services/3pl",
     },
     {
       image: "/cfs.png",
@@ -93,7 +93,7 @@ export const Services = () => {
       description:
         "Secure and efficient CFS operations for stuffing, de-stuffing, and customs checks with digital documentation.",
       icon: <Warehouse />,
-      link: "/one-global/cfs",
+      link: "/services/cfs",
     },
     {
       image: "/projectcargo.png",
@@ -101,7 +101,7 @@ export const Services = () => {
       description:
         "Specialized handling for heavy-lift and ODC cargo with engineered transport plans ensuring zero-surprise execution.",
       icon: <Construction />,
-      link: "/one-global/project-logistics",
+      link: "/services/project-logistics",
     },
   ];
 
@@ -117,8 +117,8 @@ export const Services = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={container}
-      // ✅ Added vertical space above & below
-      className="bg-[#F8F9FB] py-20 mt-16 mb-16"
+      // ✅ No margins - parent sections handle spacing
+      className="bg-[#F8F9FB] py-20"
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
