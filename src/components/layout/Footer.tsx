@@ -148,9 +148,7 @@ export const Footer = () => {
               </AnimatePresence>
 
               {/* Right-side arrow button only */}
-              <button onClick={handleNext} className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-brand-navy text-white p-1 rounded-full hover:bg-brand-gold transition">
-                <ChevronRight size={18} />
-              </button>
+              
             </div>
           </motion.div>
         </div>

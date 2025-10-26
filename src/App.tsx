@@ -28,7 +28,7 @@ const queryClient = new QueryClient();
 // App component as a regular function component
 function App() {
   return <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
+      <TooltipProvider className="text-slate-50 text-base font-extralight bg-blue-300 hover:bg-blue-200">
         <BrowserRouter>
           <ScrollToTop className="bg-brand-navy text-slate-50" />
           <Routes>
