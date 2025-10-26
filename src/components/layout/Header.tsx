@@ -54,42 +54,38 @@ export const Header = () => {
             <img src="/ogl-logo.png" alt="One Global Logistics" onClick={handleLogoClick} className="h-16 w-auto cursor-pointer transition-all duration-300 object-contain" />
           </div>
 
-          <button className="md:hidden text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-navy rounded-md p-1" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className="md:hidden text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-gold rounded-md p-1" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
           <nav className="hidden md:flex gap-6 items-center">
-            <button onClick={() => handleNavClick("/")} className={`text-gray-800 hover:text-brand-navy font-medium transition-colors py-1 ${location.pathname === '/' ? 'text-brand-navy' : ''}`}>
+            <button onClick={() => handleNavClick("/")} className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${location.pathname === '/' ? 'text-brand-gold' : ''}`}>
               Home
             </button>
-            <button onClick={() => handleNavClick("/about")} className={`text-gray-800 hover:text-brand-navy font-medium transition-colors py-1 ${location.pathname === '/about' ? 'text-brand-navy' : ''}`}>
+            <button onClick={() => handleNavClick("/about")} className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${location.pathname === '/about' ? 'text-brand-gold' : ''}`}>
               About Us
             </button>
-            <button onClick={() => handleNavClick("/services")} className={`text-gray-800 hover:text-brand-navy font-medium transition-colors py-1 ${location.pathname.includes('/services') ? 'text-brand-navy' : ''}`}>
+            <button onClick={() => handleNavClick("/services")} className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${location.pathname.includes('/services') ? 'text-brand-gold' : ''}`}>
               Services
             </button>
-            <button onClick={() => handleNavClick("/global-presence")} className={`text-gray-800 hover:text-brand-navy font-medium transition-colors py-1 ${location.pathname === '/global-presence' ? 'text-brand-navy' : ''}`}>
-              Global Presence
-            </button>
-            <button onClick={() => handleNavClick("/careers")} className={`text-gray-800 hover:text-brand-navy font-medium transition-colors py-1 ${location.pathname === '/careers' ? 'text-brand-navy' : ''}`}>
+            <button onClick={() => handleNavClick("/careers")} className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${location.pathname === '/careers' ? 'text-brand-gold' : ''}`}>
               Careers
             </button>
-            <button onClick={() => handleNavClick("/contact")} className={`text-gray-800 hover:text-brand-navy font-medium transition-colors py-1 ${location.pathname === '/contact' ? 'text-brand-navy' : ''}`}>
-              Contact Us
-            </button>
+            <button onClick={() => handleNavClick("/contact")} className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${location.pathname === '/contact' ? 'text-brand-gold' : ''}`}>Careers</button>
 
             <div className="flex items-center gap-2">
-              <a href="https://linkedin.com/company/onegloballogistics/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-navy transition-colors">
-                <Linkedin size={18} />
+              <a href="https://www.linkedin.com/company/gglus/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-gold transition-colors">
+                
               </a>
-              <a href="https://www.facebook.com/oneglobalqatar" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-navy transition-colors">
-                <Facebook size={18} />
+              <a href="https://www.facebook.com/gglusa" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-gold transition-colors">
+                
               </a>
             </div>
 
             <CountrySelector />
 
-            <button onClick={() => handleNavClick("/contact", "contact-form")} className="px-5 py-2 transition font-medium bg-brand-navy hover:bg-brand-navy/90 text-white rounded-xl">
+            {/* ✅ Get A Quote Button - scroll to form */}
+            <button onClick={() => handleNavClick("/contact", "contact-form")} className="px-5 py-2 transition font-medium bg-slate-900 hover:bg-slate-800 text-slate-50 rounded-xl">
               Get A Quote
             </button>
           </nav>
@@ -98,37 +94,35 @@ export const Header = () => {
         {/* Mobile Navigation */}
         <div className={`${isMobileMenuOpen ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0'} md:hidden overflow-hidden transition-all duration-300 ease-in-out`}>
           <nav className="flex flex-col gap-4 border-t mt-4 border-gray-100">
-            <button onClick={() => handleNavClick("/")} className={`text-gray-800 hover:text-brand-navy font-medium ${location.pathname === '/' ? 'text-brand-navy' : ''}`}>
+            <button onClick={() => handleNavClick("/")} className={`text-gray-800 hover:text-brand-gold font-medium ${location.pathname === '/' ? 'text-brand-gold' : ''}`}>
               Home
             </button>
-            <button onClick={() => handleNavClick("/about")} className={`text-gray-800 hover:text-brand-navy font-medium ${location.pathname === '/about' ? 'text-brand-navy' : ''}`}>
+            <button onClick={() => handleNavClick("/about")} className={`text-gray-800 hover:text-brand-gold font-medium ${location.pathname === '/about' ? 'text-brand-gold' : ''}`}>
               About Us
             </button>
-            <button onClick={() => handleNavClick("/services")} className={`text-gray-800 hover:text-brand-navy font-medium ${location.pathname.includes('/services') ? 'text-brand-navy' : ''}`}>
+            <button onClick={() => handleNavClick("/services")} className={`text-gray-800 hover:text-brand-gold font-medium ${location.pathname.includes('/services') ? 'text-brand-gold' : ''}`}>
               Services
             </button>
-            <button onClick={() => handleNavClick("/global-presence")} className={`text-gray-800 hover:text-brand-navy font-medium ${location.pathname === '/global-presence' ? 'text-brand-navy' : ''}`}>
-              Global Presence
-            </button>
-            <button onClick={() => handleNavClick("/careers")} className={`text-gray-800 hover:text-brand-navy font-medium ${location.pathname === '/careers' ? 'text-brand-navy' : ''}`}>
+            <button onClick={() => handleNavClick("/careers")} className={`text-gray-800 hover:text-brand-gold font-medium ${location.pathname === '/careers' ? 'text-brand-gold' : ''}`}>
               Careers
             </button>
-            <button onClick={() => handleNavClick("/contact")} className={`text-gray-800 hover:text-brand-navy font-medium ${location.pathname === '/contact' ? 'text-brand-navy' : ''}`}>
+            <button onClick={() => handleNavClick("/contact")} className={`text-gray-800 hover:text-brand-gold font-medium ${location.pathname === '/contact' ? 'text-brand-gold' : ''}`}>
               Contact Us
             </button>
 
             <div className="flex items-center gap-4 py-2">
-              <a href="https://linkedin.com/company/onegloballogistics/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-navy transition-colors">
+              <a href="https://www.linkedin.com/company/gglus/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-gold transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="https://www.facebook.com/oneglobalqatar" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-navy transition-colors">
+              <a href="https://www.facebook.com/gglusa" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-brand-gold transition-colors">
                 <Facebook size={20} />
               </a>
             </div>
 
             <CountrySelector />
 
-            <button onClick={() => handleNavClick("/contact", "contact-form")} className="px-4 py-2 bg-brand-navy text-white rounded-md hover:bg-brand-navy/90 text-center font-medium w-full">
+            {/* ✅ Get A Quote Button - scroll to form */}
+            <button onClick={() => handleNavClick("/contact", "contact-form")} className="px-4 py-2 bg-brand-gold text-brand-navy rounded-md hover:bg-amber-500 text-center font-medium w-full">
               Get A Quote
             </button>
           </nav>
