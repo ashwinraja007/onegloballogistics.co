@@ -27,36 +27,44 @@ const Hero = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [sliderImages.length]);
-  const portalLinks = [{
+const portalLinks = [
+  {
     icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Customer Portal',
+    title: 'ConsolMate',
     description: 'Access shipping dashboard',
-    onClick: () => setIsCustomerPortalOpen(true)
-  }, {
+    url: 'https://consolmate.com/auth/login/9',
+    external: true
+  },
+  {
     icon: <UserCircle className="w-4 h-4 sm:w-5 sm:h-5" />,
     title: 'Partner Portal',
     description: 'Manage partnership',
-    url: 'https://pp.onlinetracking.co/auth/login/3',
+    url: 'https://pp.onlinetracking.co/auth/login/9',
     external: true
-  }, {
+  },
+  {
     icon: <SearchCode className="w-4 h-4 sm:w-5 sm:h-5" />,
     title: 'Tracking',
     description: 'Track your shipment',
-    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:102:::::P0_GROUP_RID:59',
+    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:102:::::P0_GROUP_RID:188',
     external: true
-  }, {
+  },
+  {
     icon: <Ship className="w-4 h-4 sm:w-5 sm:h-5" />,
     title: 'Sailing Schedule',
     description: 'View schedules',
-    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:104:::::P0_GROUP_RID:59',
+    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:104:::::P0_GROUP_RID:188',
     external: true
-  }, {
+  },
+  {
     icon: <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />,
     title: 'Online Quote',
     description: 'Request a quote',
     url: '/contact',
     external: false
-  }];
+  }
+];
+
   return <section className="relative min-h-screen overflow-hidden pt-8 md:pt-16">
       {/* Background Slider */}
       <div className="absolute inset-0 overflow-hidden">
