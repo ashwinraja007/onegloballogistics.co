@@ -64,13 +64,13 @@ export const Services = () => {
   const location = useLocation();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
   const services = [{
-    image: "/oneglobal/fcl.jpg",
+    image: "/fcl.jpg",
     title: "FCL (Full Container Load)",
     description: "Dedicated containers for your cargo with fixed schedules, secure stuffing, and full visibility across major trade lanes.",
     icon: <Boxes />,
     link: "/one-global/fcl"
   }, {
-    image: "/oneglobal/lcl.jpg",
+    image: "/lcl.png",
     title: "LCL (Less than Container Load)",
     description: "Shared container services with reliable weekly sailings, optimized consolidation, and smooth deconsolidation at destination.",
     icon: <Package />,
@@ -82,7 +82,7 @@ export const Services = () => {
     icon: <Truck />,
     link: "/one-global/3pl"
   }, {
-    image: "/oneglobal/cfs.jpg",
+    image: "/cfs.jpg",
     title: "CFS (Container Freight Station)",
     description: "Secure and efficient CFS operations for stuffing, de-stuffing, and customs checks with digital documentation.",
     icon: <Warehouse />,
