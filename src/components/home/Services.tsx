@@ -64,7 +64,7 @@ export const Services = () => {
   const location = useLocation();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
   const services = [{
-    image: "/fcl.jpg",
+    image: "/fcl.png",
     title: "FCL (Full Container Load)",
     description: "Dedicated containers for your cargo with fixed schedules, secure stuffing, and full visibility across major trade lanes.",
     icon: <Boxes />,
@@ -76,19 +76,19 @@ export const Services = () => {
     icon: <Package />,
     link: "/one-global/lcl"
   }, {
-    image: "/oneglobal/3pl.jpg",
+    image: "/3pl.png",
     title: "3PL (Third-Party Logistics)",
     description: "End-to-end logistics outsourcing — inventory, order fulfillment, and scalable distribution with advanced visibility.",
     icon: <Truck />,
     link: "/one-global/3pl"
   }, {
-    image: "/cfs.jpg",
+    image: "/cfs.png",
     title: "CFS (Container Freight Station)",
     description: "Secure and efficient CFS operations for stuffing, de-stuffing, and customs checks with digital documentation.",
     icon: <Warehouse />,
     link: "/one-global/cfs"
   }, {
-    image: "/oneglobal/project.jpg",
+    image: "projectcargo.png",
     title: "Project Logistics",
     description: "Specialized handling for heavy-lift and ODC cargo with engineered transport plans ensuring zero-surprise execution.",
     icon: <Construction />,
