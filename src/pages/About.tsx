@@ -79,15 +79,7 @@ const About = () => {
                 </div>
 
                 {/* Floating Card */}
-                <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-lg max-w-xs">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <Globe className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Global Network</h4>
-                      <p className="text-sm text-gray-600">50+ countries worldwide</p>
-                    </div>
+               
                   </div>
                 </div>
               </motion.div>
