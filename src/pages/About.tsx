@@ -74,7 +74,7 @@ const About = () => {
               once: true
             }} className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img alt="GGL Global Logistics" className="w-full h-[600px] object-cover" src="/lovable-uploads/41795fb5-562d-45d1-a8d3-f26724bc079b.png" />
+                  <img alt="GGL Global Logistics" className="w-full h-[600px] object-cover" src="/abstract-glowing-blurry-global-delivery-scheme-hol-2025-10-15-01-51-06-utc.jpg" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                 </div>
 
