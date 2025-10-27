@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Boxes, Package, Warehouse, Truck, Construction } from "lucide-react";
+import { Plane, Ship, Truck, Package, Warehouse } from "lucide-react";
 
-const OneGlobalCard = ({ image, title, description, icon }) => {
+const OneGlobalCard = ({ image, title, points, icon }) => {
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -31,12 +31,16 @@ const OneGlobalCard = ({ image, title, description, icon }) => {
 
       {/* Content */}
       <div className="flex flex-col flex-grow p-5 text-[#0B1739]">
-        <div className="flex items-center gap-2 text-[#0B1739] font-semibold">
+        <div className="flex items-center gap-2 text-[#0B1739] font-semibold mb-2">
           {React.cloneElement(icon, { size: 16 })}
           <h3 className="text-base font-semibold">{title}</h3>
         </div>
 
-        <p className="text-sm text-gray-600 mt-2 flex-grow leading-snug">{description}</p>
+        <ul className="text-sm text-gray-600 list-disc pl-5 space-y-1 leading-snug">
+          {points.map((pt, idx) => (
+            <li key={idx}>{pt}</li>
+          ))}
+        </ul>
       </div>
     </motion.div>
   );
@@ -48,39 +52,54 @@ export const Services = () => {
 
   const services = [
     {
-      image: "/fcl.png",
-      title: "FCL (Full Container Load)",
-      description:
-        "Dedicated containers for your cargo with fixed schedules, secure stuffing, and full visibility across major trade lanes.",
-      icon: <Boxes />,
+      image: "/aircargo2.png",
+      title: "Air Freight",
+      icon: <Plane />,
+      points: [
+        "Express & deferred services",
+        "Airport-to-airport & door-to-door",
+        "Dangerous goods & temperature-sensitive cargo",
+      ],
     },
     {
-      image: "/lcl.png",
-      title: "LCL (Less than Container Load)",
-      description:
-        "Shared container services with reliable weekly sailings, optimized consolidation, and smooth deconsolidation at destination.",
-      icon: <Package />,
+      image: "/oceanf.png",
+      title: "Sea Freight",
+      icon: <Ship />,
+      points: [
+        "FCL / LCL shipping",
+        "Breakbulk and Ro-Ro solutions",
+        "Global consolidation services",
+      ],
     },
     {
-      image: "/3pl.png",
-      title: "3PL (Third-Party Logistics)",
-      description:
-        "End-to-end logistics outsourcing — inventory, order fulfillment, and scalable distribution with advanced visibility.",
+      image: "/CARGO.png",
+      title: "Road Freight",
       icon: <Truck />,
+      points: [
+        "GCC distribution",
+        "Cross-border trucking",
+        "Last-mile delivery",
+      ],
     },
     {
-      image: "/cfs.png",
-      title: "CFS (Container Freight Station)",
-      description:
-        "Secure and efficient CFS operations for stuffing, de-stuffing, and customs checks with digital documentation.",
+      image: "/lovable-uploads/cc.jpg",
+      title: "Customs Clearance & Documentation",
+      icon: <Package />,
+      points: [
+        "Import/export documentation",
+        "Free zone & mainland clearance",
+        "Compliance support",
+      ],
+    },
+    {
+      image: "/warhouseh1.png",
+      title: "Warehousing & Distribution",
       icon: <Warehouse />,
-    },
-    {
-      image: "/projectcargo.png",
-      title: "Project Logistics",
-      description:
-        "Specialized handling for heavy-lift and ODC cargo with engineered transport plans ensuring zero-surprise execution.",
-      icon: <Construction />,
+      points: [
+        "Bonded & non-bonded facilities",
+        "Inventory management",
+        "Value-added services",
+      ],
     },
   ];
 
@@ -104,7 +123,7 @@ export const Services = () => {
           <h2 className="text-3xl font-bold text-[#0B1739]">Core Services</h2>
           <div className="w-24 h-1 bg-[#0B1739] mx-auto mt-3 mb-4"></div>
           <p className="text-sm md:text-base text-gray-600">
-            Focused capabilities engineered for reliability, speed, and control.
+            Comprehensive logistics solutions built for speed, reliability, and control.
           </p>
         </motion.div>
 
