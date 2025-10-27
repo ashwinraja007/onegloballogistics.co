@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Loader2 } from "lucide-react";
 import Hero from "@/components/home/Hero";
 import { VisionMission } from "@/components/about/VisionMission";
-import { WhyChooseUs } from "@/components/about/WhyChooseUs";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 // Lazy load other components
 const AboutUs = lazy(() => import("@/components/home/AboutUs"));
 const Services = lazy(() => import("@/components/home/Services"));
