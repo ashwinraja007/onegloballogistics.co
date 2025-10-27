@@ -9,7 +9,7 @@ const AboutUs = lazy(() => import("@/components/home/AboutUs"));
 const Services = lazy(() => import("@/components/home/Services"));
 const GlobalPresence = lazy(() => import("@/components/home/GlobalPresence"));
 const QuickEnquiry = lazy(() => import("@/components/home/QuickEnquiry"));
-const QuickEnquiry = lazy(() => import("@/components/home/IndustriesPage"));
+const IndustriesPage = lazy(() => import("@/components/home/IndustriesPage"));
 
 // Loading component
 const LoadingComponent = () => <div className="flex items-center justify-center min-h-[100px]">
