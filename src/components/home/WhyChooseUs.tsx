@@ -43,7 +43,8 @@ const item = {
 
 const WhyChooseUs = () => {
   return (
-    <section className="bg-[#F8F9FB] py-16 md:py-20">
+    // ✅ Reduced bottom space, balanced padding overall
+    <section className="bg-[#F8F9FB] pt-12 pb-6 md:pt-16 md:pb-8">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Header */}
         <motion.div
@@ -51,7 +52,7 @@ const WhyChooseUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-[#0B1739]">
             Why Choose Us
@@ -69,7 +70,7 @@ const WhyChooseUs = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
         >
           {reasons.map((reason, idx) => (
             <motion.div
