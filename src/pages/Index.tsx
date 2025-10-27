@@ -38,6 +38,10 @@ const Index = () => {
        <Suspense fallback={<LoadingComponent />}>
           <IndustriesPage />
         </Suspense>
+
+        <Suspense fallback={<LoadingComponent />}>
+          <WhyChooseUsIndustriesPage />
+        </Suspense>
         
         <Suspense fallback={<LoadingComponent />}>
           <GlobalPresence />
