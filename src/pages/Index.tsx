@@ -40,7 +40,7 @@ const Index = () => {
         </Suspense>
 
         <Suspense fallback={<LoadingComponent />}>
-          <WhyChooseUsIndustriesPage />
+          <WhyChooseUs />
         </Suspense>
         
         <Suspense fallback={<LoadingComponent />}>
