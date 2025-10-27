@@ -12,6 +12,8 @@ import {
   Target,
   Users,
   Warehouse,
+  Compass,
+  Flag,
 } from "lucide-react";
 
 const About = () => {
@@ -43,7 +45,7 @@ const About = () => {
         <section className="py-20 px-6 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left: Text */}
+              {/* Left: Text (UPDATED CONTENT) */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -56,21 +58,39 @@ const About = () => {
 
                 <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
                   <p>
-                    One Global Logistics services W.L.L is a Qatar-based global NVOCC (Non-vessel owned common carrier)
-                    operator providing LCL consolidation services worldwide markets. We at OGL have a well experienced
-                    and established team with relevant experience in their own dedicated trade lanes supporting our
-                    customers with all their special requirements with complete dedication and transparency.
+                    <strong>One Global Logistics LLC</strong> is a multinational logistics company headquartered in
+                    the UAE, offering end-to-end supply chain solutions across air, sea, and land. With a strong
+                    presence in many countries and a dedicated team of logistics professionals, we ensure reliability,
+                    speed, and transparency in every shipment.
                   </p>
-                  <p>
-                    Our commitment to honest, transparent business practice and pricing, backed by a network of
-                    experienced and trusted agents from around the world, makes us one of the fast-growing consolidators
-                    based in Qatar.
-                  </p>
-                  <p>
-                    We are well-positioned to manage your LCL business with full attention. We aim at providing secured
-                    end-to-end LCL services to the Freight Forwarding/Logistics Companies in Qatar, ensuring to maintain
-                    trust and not entertain direct customer business.
-                  </p>
+
+                  {/* Vision & Mission Cards */}
+                  <div className="grid sm:grid-cols-2 gap-6 pt-2">
+                    <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 bg-blue-100 rounded-full">
+                          <Compass className="w-5 h-5 text-blue-600" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-900">Our Vision</h3>
+                      </div>
+                      <p className="text-gray-700 text-base">
+                        To be the preferred global logistics partner through innovation, efficiency, and customer focus.
+                      </p>
+                    </div>
+
+                    <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 bg-emerald-100 rounded-full">
+                          <Flag className="w-5 h-5 text-emerald-600" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-900">Our Mission</h3>
+                      </div>
+                      <p className="text-gray-700 text-base">
+                        To deliver seamless, cost-effective, and sustainable logistics services, connecting businesses
+                        across continents.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
 
