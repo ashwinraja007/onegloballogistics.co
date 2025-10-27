@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Boxes, Package, Warehouse, Truck, Construction, ArrowRight } from "lucide-react";
+import { Boxes, Package, Warehouse, Truck, Construction } from "lucide-react";
 
-const OneGlobalCard = ({ image, title, description, icon, link }) => {
+const OneGlobalCard = ({ image, title, description, icon }) => {
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -38,21 +37,6 @@ const OneGlobalCard = ({ image, title, description, icon, link }) => {
         </div>
 
         <p className="text-sm text-gray-600 mt-2 flex-grow leading-snug">{description}</p>
-
-        <Link
-          to={link}
-          className="inline-flex items-center text-sm text-[#0B1739] font-medium mt-3 group"
-          onClick={() => window.scrollTo(0, 0)}
-        >
-          Learn More
-          <motion.span
-            className="ml-1"
-            animate={{ x: [0, 5, 0] }}
-            transition={{ duration: 1.3, repeat: Infinity, repeatType: "mirror" }}
-          >
-            <ArrowRight size={12} />
-          </motion.span>
-        </Link>
       </div>
     </motion.div>
   );
@@ -69,7 +53,6 @@ export const Services = () => {
       description:
         "Dedicated containers for your cargo with fixed schedules, secure stuffing, and full visibility across major trade lanes.",
       icon: <Boxes />,
-      link: "/services/fcl",
     },
     {
       image: "/lcl.png",
@@ -77,7 +60,6 @@ export const Services = () => {
       description:
         "Shared container services with reliable weekly sailings, optimized consolidation, and smooth deconsolidation at destination.",
       icon: <Package />,
-      link: "/services/lcl",
     },
     {
       image: "/3pl.png",
@@ -85,7 +67,6 @@ export const Services = () => {
       description:
         "End-to-end logistics outsourcing — inventory, order fulfillment, and scalable distribution with advanced visibility.",
       icon: <Truck />,
-      link: "/services/3pl",
     },
     {
       image: "/cfs.png",
@@ -93,7 +74,6 @@ export const Services = () => {
       description:
         "Secure and efficient CFS operations for stuffing, de-stuffing, and customs checks with digital documentation.",
       icon: <Warehouse />,
-      link: "/services/cfs",
     },
     {
       image: "/projectcargo.png",
@@ -101,7 +81,6 @@ export const Services = () => {
       description:
         "Specialized handling for heavy-lift and ODC cargo with engineered transport plans ensuring zero-surprise execution.",
       icon: <Construction />,
-      link: "/services/project-logistics",
     },
   ];
 
@@ -117,7 +96,6 @@ export const Services = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={container}
-      // ✅ No margins - parent sections handle spacing
       className="bg-[#F8F9FB] py-20"
     >
       <div className="max-w-6xl mx-auto px-4">
