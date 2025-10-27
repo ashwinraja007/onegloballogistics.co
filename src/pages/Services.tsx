@@ -15,16 +15,24 @@ const ScrollToTop = () => {
   return null;
 };
 
-const ServiceCard = ({ icon, title, description, image, link }) => {
+type ServiceCardProps = {
+  icon: React.ReactNode;
+  title: string;
+  image?: string;
+  description?: string;
+  points?: string[];
+  link: string;
+};
+
+const ServiceCard = ({ icon, title, description, points, image, link }: ServiceCardProps) => {
   const getServiceImage = () => {
     switch (title) {
       case "Air Freight": return "/aircargo2.png";
-      case "Ocean Freight": return "/oceanf.png";
-      case "Customs Clearance": return "/lovable-uploads/cc.jpg";
-      case "Liquid Transportation": return "/transports.png";
-      case "Transportation": return "/CARGO.png";
-      case "Warehousing": return "/warhouseh1.png";
-      default: return image;
+      case "Sea Freight": return "/oceanf.png";
+      case "Road Freight": return "/CARGO.png";
+      case "Customs Clearance & Documentation": return "/lovable-uploads/cc.jpg";
+      case "Warehousing & Distribution": return "/warhouseh1.png";
+      default: return image || "/placeholder-service.jpg";
     }
   };
 
@@ -48,7 +56,19 @@ const ServiceCard = ({ icon, title, description, image, link }) => {
           {icon}
         </div>
         <h3 className="text-xl font-semibold text-brand-navy mb-3">{title}</h3>
-        <p className="text-gray-600 text-sm mb-4 line-clamp-4">{description}</p>
+
+        {points && points.length > 0 ? (
+          <ul className="text-gray-600 text-sm mb-4 list-disc pl-5 space-y-1">
+            {points.map((pt, idx) => (
+              <li key={idx}>{pt}</li>
+            ))}
+          </ul>
+        ) : (
+          description && (
+            <p className="text-gray-600 text-sm mb-4 line-clamp-4">{description}</p>
+          )
+        )}
+
         <Link
           to={link}
           className="text-brand-navy font-medium hover:text-brand-navy/80 inline-flex items-center text-sm"
@@ -65,12 +85,63 @@ const ServiceCard = ({ icon, title, description, image, link }) => {
 
 const Services = () => {
   const isMobile = useIsMobile();
-  const services = [
-    { id: 1, icon: <Boxes className="w-5 h-5" />, title: "FCL (Full Container Load)", image: "/fcl.png", description: "Dedicated containers for your cargo with fixed schedules, secure stuffing, and full visibility across major trade lanes.", link: "/services/fcl" },
-    { id: 2, icon: <Package className="w-5 h-5" />, title: "LCL (Less than Container Load)", image: "/lcl.png", description: "Shared container services with reliable weekly sailings, optimized consolidation, and smooth deconsolidation at destination.", link: "/services/lcl" },
-    { id: 3, icon: <Truck className="w-5 h-5" />, title: "3PL (Third-Party Logistics)", image: "/3pl.png", description: "End-to-end logistics outsourcing — inventory, order fulfillment, and scalable distribution with advanced visibility.", link: "/services/3pl" },
-    { id: 4, icon: <Warehouse className="w-5 h-5" />, title: "CFS (Container Freight Station)", image: "/cfs.png", description: "Secure and efficient CFS operations for stuffing, de-stuffing, and customs checks with digital documentation.", link: "/services/cfs" },
-    { id: 5, icon: <Ship className="w-5 h-5" />, title: "Project Logistics", image: "/projectcargo.png", description: "Specialized handling for heavy-lift and ODC cargo with engineered transport plans ensuring zero-surprise execution.", link: "/services/project-logistics" }
+
+  const services: ServiceCardProps[] = [
+    {
+      icon: <Plane className="w-5 h-5" />,
+      title: "Air Freight",
+      image: "/aircargo2.png",
+      points: [
+        "Express & deferred services",
+        "Airport-to-airport & door-to-door",
+        "Dangerous goods & temperature-sensitive cargo",
+      ],
+      link: "/services/air-freight",
+    },
+    {
+      icon: <Ship className="w-5 h-5" />,
+      title: "Sea Freight",
+      image: "/oceanf.png",
+      points: [
+        "FCL / LCL shipping",
+        "Breakbulk and Ro-Ro solutions",
+        "Global consolidation services",
+      ],
+      link: "/services/sea-freight",
+    },
+    {
+      icon: <Truck className="w-5 h-5" />,
+      title: "Road Freight",
+      image: "/CARGO.png",
+      points: [
+        "GCC distribution",
+        "Cross-border trucking",
+        "Last-mile delivery",
+      ],
+      link: "/services/road-freight",
+    },
+    {
+      icon: <Package className="w-5 h-5" />,
+      title: "Customs Clearance & Documentation",
+      image: "/lovable-uploads/cc.jpg",
+      points: [
+        "Import/export documentation",
+        "Free zone & mainland clearance",
+        "Compliance support",
+      ],
+      link: "/services/customs-clearance",
+    },
+    {
+      icon: <Warehouse className="w-5 h-5" />,
+      title: "Warehousing & Distribution",
+      image: "/warhouseh1.png",
+      points: [
+        "Bonded & non-bonded facilities",
+        "Inventory management",
+        "Value-added services",
+      ],
+      link: "/services/warehousing-distribution",
+    },
   ];
 
   return (
@@ -79,26 +150,28 @@ const Services = () => {
       <Header />
       <main className="flex-grow pt-16 md:pt-20">
         <section className="bg-gradient-to-r from-gray-900 to-brand-navy text-white relative overflow-hidden">
-  <div className="absolute inset-0 z-0">
-    <img src="/lovable-uploads/gp.jpg" alt="Services" className="w-full h-full object-cover opacity-20" />
-    <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-brand-navy opacity-90" />
-  </div>
+          <div className="absolute inset-0 z-0">
+            <img src="/lovable-uploads/gp.jpg" alt="Services" className="w-full h-full object-cover opacity-20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-brand-navy opacity-90" />
+          </div>
 
-  <div className="container mx-auto px-4 py-8 md:py-12 relative z-10"> {/* reduced padding */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="text-center max-w-3xl mx-auto"
-    >
-      <h1 className="text-2xl md:text-4xl font-bold mb-2 text-slate-50">Our Logistics Services</h1> {/* smaller heading, tighter spacing */}
-      <div className="w-16 h-1 bg-white mx-auto mb-4"></div>
-      <p className="text-base md:text-lg text-white/90 mb-4">
-        From air and ocean freight to specialized transportation solutions, we offer end-to-end logistics expertise to meet your global shipping needs.
-      </p>
-    </motion.div>
-  </div>
-</section>
+          <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center max-w-3xl mx-auto"
+            >
+              <h1 className="text-2xl md:text-4xl font-bold mb-2 text-slate-50">Our Logistics Services</h1>
+              <div className="w-16 h-1 bg-white mx-auto mb-4"></div>
+              <p className="text-base md:text-lg text-white/90 mb-4">
+                From air and ocean freight to specialized transportation solutions, we offer end-to-end logistics
+                expertise to meet your global shipping needs.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         <section className="py-12">
           <div className="container mx-auto px-4">
             <motion.div
@@ -114,9 +187,10 @@ const Services = () => {
                 Explore our comprehensive range of services designed to meet all your logistics requirements.
               </p>
             </motion.div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {services.map(service => (
-                <ServiceCard key={service.id} {...service} />
+              {services.map((service, idx) => (
+                <ServiceCard key={idx} {...service} />
               ))}
             </div>
           </div>
