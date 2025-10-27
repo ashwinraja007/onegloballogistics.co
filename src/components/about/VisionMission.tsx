@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 import { Rocket, Target } from "lucide-react";
-import { motion } from "framer-motion";
 
 interface VisionMissionCardProps {
   title: string;
@@ -23,32 +22,18 @@ const cards: VisionMissionCardProps[] = [
 
 export const VisionMission = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="grid gap-8 md:grid-cols-2"
-        >
-          {cards.map(({ title, description, icon: Icon }) => (
-            <div
-              key={title}
-              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-navy to-brand-navy/80 p-10 text-white shadow-xl"
-            >
-              <div className="flex items-start gap-4">
-                <span className="rounded-xl bg-white/20 p-4">
-                  <Icon className="h-8 w-8" />
-                </span>
-                <div>
-                  <h3 className="text-2xl font-semibold">{title}</h3>
-                  <p className="mt-3 text-base leading-relaxed text-white/90">{description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
+    <section className="mt-16 w-full bg-gray-50 py-12">
+      <div className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-6 md:flex-row">
+        {cards.map(({ title, description, icon: Icon }) => (
+          <div
+            key={title}
+            className="flex flex-1 flex-col gap-3 rounded-xl bg-white p-6 text-gray-700 shadow-sm"
+          >
+            <Icon className="h-6 w-6 text-brand-navy" />
+            <h2 className="text-xl font-semibold text-brand-navy">{title}</h2>
+            <p className="text-sm md:text-base">{description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
