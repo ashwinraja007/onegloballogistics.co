@@ -3,13 +3,14 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Loader2 } from "lucide-react";
 import Hero from "@/components/home/Hero";
-
+import { VisionMission } from "@/components/about/VisionMission";
 // Lazy load other components
 const AboutUs = lazy(() => import("@/components/home/AboutUs"));
 const Services = lazy(() => import("@/components/home/Services"));
 const GlobalPresence = lazy(() => import("@/components/home/GlobalPresence"));
 const QuickEnquiry = lazy(() => import("@/components/home/QuickEnquiry"));
 const IndustriesPage = lazy(() => import("@/components/home/IndustriesPage"));
+
 
 // Loading component
 const LoadingComponent = () => <div className="flex items-center justify-center min-h-[100px]">
@@ -23,6 +24,10 @@ const Index = () => {
         
         <Suspense fallback={<LoadingComponent />}>
           <AboutUs />
+        </Suspense>
+
+        <Suspense fallback={<LoadingComponent />}>
+          <VisionMission />
         </Suspense>
         
         <Suspense fallback={<LoadingComponent />}>
