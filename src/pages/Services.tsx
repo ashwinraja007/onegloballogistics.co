@@ -69,15 +69,7 @@ const ServiceCard = ({ icon, title, description, points, image, link }: ServiceC
           )
         )}
 
-        <Link
-          to={link}
-          className="text-brand-navy font-medium hover:text-brand-navy/80 inline-flex items-center text-sm"
-        >
-          Learn More
-          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </Link>
+
       </div>
     </motion.div>
   );
@@ -172,21 +164,7 @@ const Services = () => {
           </div>
         </section>
 
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="text-center mb-8"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-3">All Services</h2>
-              <div className="w-20 h-1 bg-brand-navy mx-auto mb-4"></div>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Explore our comprehensive range of services designed to meet all your logistics requirements.
-              </p>
-            </motion.div>
+       
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {services.map((service, idx) => (
