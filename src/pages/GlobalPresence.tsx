@@ -43,25 +43,21 @@ const GlobalPresence = () => {
           </div>}
         
         {/* Main content with map - 60% on desktop, full on mobile when active */}
-        {(!isMobile || isMobile && showMap) && <motion.main initial={isMobile ? {
-        x: '100%'
-      } : {
-        opacity: 0
-      }} animate={isMobile ? {
-        x: 0
-      } : {
-        opacity: 1
-      }} exit={isMobile ? {
-        x: '100%'
-      } : {
-        opacity: 0
-      }} transition={{
-        type: 'spring',
-        stiffness: 300,
-        damping: 30
-      }} className={`transition-all duration-300 ease-in-out ${isMobile ? 'w-full' : 'w-[60%]'}`}>
+      {(!isMobile || (isMobile && showMap)) && (
+          <motion.main
+            initial={isMobile ? { x: '100%' } : { opacity: 0 }}
+            animate={isMobile ? { x: 0 } : { opacity: 1 }}
+            exit={isMobile ? { x: '100%' } : { opacity: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 30
+            }}
+            className={`transition-all duration-300 ease-in-out ${isMobile ? 'w-full' : 'w-[60%]'}`}
+          >
             <MapContainer />
-          </motion.main>}
+          </motion.main>
+        )}
         
         {/* Sidebar for locations - 35% on desktop, full width on mobile when active */}
         {(!isMobile || isMobile && !showMap) && <motion.div initial={isMobile ? {
