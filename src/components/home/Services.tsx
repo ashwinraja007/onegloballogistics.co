@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Plane, Ship, Truck, Package, Warehouse } from "lucide-react";
+import { Plane, Ship, Truck, Package, Boxes, Warehouse } from "lucide-react";
 
 const OneGlobalCard = ({ image, title, points, icon }) => {
   return (
@@ -99,6 +99,16 @@ export const Services = () => {
         "Bonded & non-bonded facilities",
         "Inventory management",
         "Value-added services",
+      ],
+    },
+    {
+      image: "/h4.png",
+      title: "Project Logistics",
+      icon: <Boxes />,
+      points: [
+        "Planning & Coordination: Scope assessment, multimodal transport, scheduling, and route surveys.",  
+        "Operations & Management: Cargo handling, on-site logistics, and execution.",
+        "Compliance & Support: Customs, HSE standards, and post-delivery support.",   
       ],
     },
   ];
