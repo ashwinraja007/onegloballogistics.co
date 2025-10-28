@@ -138,15 +138,9 @@ const Services = () => {
       title: "Project Logistics",
       image: "/h4.png",
       points: [
-        "Scope Assessment and Planning",
-        "Cargo Handling and Management",
-        "Multimodal Transport Coordination",
-        "Customs & Compliance",
-        "Scheduling and Execution",
-        "Route & Site Surveys",
-        "Health, Safety and Environment (HSE)",
-        "On-Site Logistics Support",
-        "Post-Delivery Support",
+        "Planning & Coordination: Scope assessment, multimodal transport, scheduling, and route surveys.",  
+        "Operations & Management: Cargo handling, on-site logistics, and execution.",
+        "Compliance & Support: Customs, HSE standards, and post-delivery support.",        
       ],
     },
   ];
