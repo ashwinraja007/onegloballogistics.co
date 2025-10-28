@@ -24,7 +24,7 @@ const countries: CountryData[] = [
   { country: "MALAYSIA",      company: "OECL",     website: "https://www.oecl.sg/malaysia/home",  priority: 2,  flag: "/my.svg" },
   { country: "INDONESIA",     company: "OECL",     website: "https://www.oecl.sg/indonesia/home", priority: 3,  flag: "/id.svg" },
   { country: "THAILAND",      company: "OECL",     website: "https://www.oecl.sg/thailand/home",  priority: 4,  flag: "/th.svg" },
-  { country: "AUSTRALIA",     company: "GGL AU",   website: "https://www.gglaustralia.com/",      priority: 7,  flag: "/au.svg" },
+  { country: "AUSTRALIA",     company: "GGL",   website: "https://www.gglaustralia.com/",      priority: 7,  flag: "/au.svg" },
   { country: "INDIA",         company: "OECL",     website: "https://www.oecl.sg/india/home",      priority: 8,  flag: "/in.svg" },
   { country: "BANGLADESH",    company: "GGL",      website: "https://ggl.sg/",                     priority: 9,  flag: "/bd.svg" },
   { country: "SRI LANKA",     company: "GC",       website: "https://www.globalconsol.com",        priority: 10, flag: "/lk.svg" },
