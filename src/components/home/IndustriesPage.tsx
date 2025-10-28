@@ -80,7 +80,7 @@ const IndustriesPage = () => {
         </section>
 
         {/* Grid Section (trimmed bottom padding to kill the white gap) */}
-        <section className="pt-8 md:pt-10 pb-6 md:pb-8 bg-[bg-gradient-to-r from-gray-900 to-brand-navy]">
+        <section className="pt-8 md:pt-10 pb-6 md:pb-8 bg-[gradient-to-r from-gray-900 to-brand-navy]">
           <div className="container mx-auto px-4">
             <motion.div
               variants={container}
