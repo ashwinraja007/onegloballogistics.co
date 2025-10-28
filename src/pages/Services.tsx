@@ -28,6 +28,8 @@ const ServiceCard = ({ icon, title, description, points, image }: ServiceCardPro
         return "/aircargo2.png";
       case "Sea Freight":
         return "/oceanf.png";
+      case "Sea Freight":
+        return "/oceanf.png";
       case "Road Freight":
         return "/CARGO.png";
       case "Customs Clearance & Documentation":
@@ -35,7 +37,7 @@ const ServiceCard = ({ icon, title, description, points, image }: ServiceCardPro
       case "Warehousing & Distribution":
         return "/warhouseh1.png";
       case "Project Logistics":
-        return "/lovable-uploads/projectlogistics.jpg"; // ✅ optional new image
+        return "/h4.png"; // ✅ optional new image
       default:
         return image || "/placeholder-service.jpg";
     }
