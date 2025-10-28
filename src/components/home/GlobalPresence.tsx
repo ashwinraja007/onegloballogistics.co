@@ -1,153 +1,62 @@
-import { motion } from 'framer-motion';
-import { MapPin, Globe, ExternalLink } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-const GlobalPresence = () => {
-  const locations = [{
-    id: 1,
-    name: "Melbourne",
-    position: {
-      top: "75%",
-      left: "85%"
-    },
-    country: "Australia"
-  }, {
-    id: 2,
-    name: "Singapore",
-    position: {
-      top: "58%",
-      left: "75%"
-    },
-    country: "Singapore"
-  }, {
-    id: 3,
-    name: "Dubai",
-    position: {
-      top: "45%",
-      left: "62%"
-    },
-    country: "UAE"
-  }, {
-    id: 4,
-    name: "London",
-    position: {
-      top: "30%",
-      left: "48%"
-    },
-    country: "UK"
-  }, {
-    id: 5,
-    name: "New York",
-    position: {
-      top: "35%",
-      left: "25%"
-    },
-    country: "USA"
-  }, {
-    id: 6,
-    name: "Los Angeles",
-    position: {
-      top: "40%",
-      left: "15%"
-    },
-    country: "USA"
-  }, {
-    id: 7,
-    name: "Shanghai",
-    position: {
-      top: "40%",
-      left: "80%"
-    },
-    country: "China"
-  }, {
-    id: 8,
-    name: "Mumbai",
-    position: {
-      top: "50%",
-      left: "68%"
-    },
-    country: "India"
-  }, {
-    id: 9,
-    name: "Cape Town",
-    position: {
-      top: "75%",
-      left: "52%"
-    },
-    country: "South Africa"
-  }];
-  const containerVariants = {
-    hidden: {
-      opacity: 0
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05
-      }
-    }
-  };
-  return <motion.section initial="hidden" whileInView="visible" viewport={{
-    once: true,
-    amount: 0.2
-  }} variants={containerVariants} className="bg-gradient-to-b from-brand-navy to-brand-navy/90 text-white py-8 px-0">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <motion.div initial={{
-          opacity: 0,
-          y: -20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.5
-        }} viewport={{
-          once: true
-        }} className="flex justify-center items-center gap-3 mb-2">
-            <motion.div animate={{
-            rotate: 360
-          }} transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}>
-              <Globe className="h-10 w-10 text-white" />
-            </motion.div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-50">Global Presence</h2>
-          </motion.div>
-          <div className="w-24 h-1 bg-brand-gold mx-auto mb-4"></div>
-          <p className="text-white/80 max-w-2xl mx-auto text-lg md:text-xl">
-            Our logistics network spans across continents, enabling seamless global shipping solutions.
-          </p>
-        </div>
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        delay: 0.8
-      }} viewport={{
-        once: true
-      }} className="mt-10 text-center bg-transparent">
-          <Link to="/global-presence">
-            <motion.button whileHover={{
-            scale: 1.05
-          }} whileTap={{
-            scale: 0.98
-          }} animate={{
-            opacity: [1, 0.5, 1]
-          }} transition={{
-            repeat: Infinity,
-            duration: 1.5
-          }} className="inline-flex items-center gap-2 text-brand-navy text-lg font-bold rounded-lg shadow-lg hover:shadow-navy-glow transition-all duration-300 px-6 py-3 bg-brand-white">
-              Explore Our Global Network <ExternalLink size={20} />
-            </motion.button>
-          </Link>
+const AboutUs = () => {
+  return (
+    <section className="py-12 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+        >
+          {/* Text Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="order-2 md:order-1"
+          >
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">About Us</h2>
+            <p className="text-gray-600 mb-6 text-base text-justify">
+              One Global Logistics LLC is a multinational logistics company headquartered in the UAE, offering end-to-end supply chain solutions across air, sea, and land. With a strong presence in many countries and a dedicated team of logistics professionals, we ensure reliability, speed, and transparency in every shipment.
+            </p>
+            <Link to="/about">
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-sm my-0 mx-0 rounded-md font-semibold bg-brand-navy text-slate-50"
+              >
+                Learn More
+              </Button>
+            </Link>
+          </motion.div>
+
+          {/* Image Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="order-1 md:order-2 flex justify-center"
+          >
+            <div className="w-full h-full overflow-hidden rounded-lg shadow-lg">
+              <img
+                src="/about.jpg"
+                alt="About Us"
+                loading="lazy"
+                className="w-full h-auto object-cover rounded-lg"
+              />
+            </div>
+          </motion.div>
         </motion.div>
       </div>
-    </motion.section>;
+    </section>
+  );
 };
-export default GlobalPresence;
+
+export default AboutUs;
