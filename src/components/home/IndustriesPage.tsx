@@ -44,25 +44,24 @@ const IndustryCard = ({ title, icon }: Industry) => (
     <div className="flex items-center justify-center w-14 h-14 mb-3 rounded-2xl bg-[#E8F2FF] text-[#0B1739] shadow-inner">
       {React.cloneElement(icon as React.ReactElement, { className: "w-6 h-6" })}
     </div>
-    <h3 className="text-[#0B1739] font-semibold text-base sm:text-lg">
-      {title}
-    </h3>
+    <h3 className="text-[#0B1739] font-semibold text-base sm:text-lg">{title}</h3>
   </motion.div>
 );
 
 const IndustriesPage = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8F9FB]">
+    // Removed min-h-screen to avoid forcing extra height when content is short
+    <div className="flex flex-col bg-[#F8F9FB]">
       <ScrollToTop />
 
       <main className="flex-grow pt-0">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-gray-900 to-brand-navy text-white">
+        {/* Hero Section (reduced bottom padding) */}
+        <section className="relative overflow-hidden bg-gradient-to-r from-gray-900 to-brand-navy text-white py-8 md:py-10">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-brand-navy opacity-90" />
           </div>
 
-          <div className="relative z-10 container mx-auto px-4 py-10 md:py-14">
+          <div className="relative z-10 container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -72,7 +71,7 @@ const IndustriesPage = () => {
               <h1 className="text-2xl md:text-4xl font-bold mb-2 text-slate-50">
                 Industries We Serve
               </h1>
-              <div className="w-16 h-1 bg-white mx-auto mb-4"></div>
+              <div className="w-16 h-1 bg-white mx-auto mb-4" />
               <p className="text-white/90 text-base md:text-lg">
                 Tailored logistics & infrastructure for high-performance operations across key sectors.
               </p>
@@ -80,8 +79,8 @@ const IndustriesPage = () => {
           </div>
         </section>
 
-        {/* Grid Section */}
-        <section className="py-10 md:py-14 bg-[#F8F9FB]">
+        {/* Grid Section (trimmed bottom padding to kill the white gap) */}
+        <section className="pt-8 md:pt-10 pb-6 md:pb-8 bg-[#F8F9FB]">
           <div className="container mx-auto px-4">
             <motion.div
               variants={container}
