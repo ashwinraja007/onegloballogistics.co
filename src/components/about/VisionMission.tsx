@@ -16,7 +16,7 @@ const cards: VisionMissionCardProps[] = [{
   icon: Target
 }];
 export const VisionMission = () => {
-  return <section className="py-16 bg-white">
+  return <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div initial={{
         opacity: 0,
