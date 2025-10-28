@@ -115,19 +115,6 @@ const countries = [{
     address: "Office no: 48, 2nd Floor, Al matar Centre, Old Airport Road Doha",
     contacts: ["0974 33622555"]
   }]
-},{
-  code: "cn",
-  name: "China",
-    lat: 22.54262,
-    lng: 114.11696,
-  cities: [{
-    name: "China",
-    lat: 22.54262,
-    lng: 114.11696,
-    address: "13C02, Block A, Zhaoxin Huijin Plaza 3085 Shennan East Road, Luohu, Shenzhen.",
-    contacts: ["+86 75582222447"],
-    email: "helen@haixun.co"
-  }]
 }, {
   code: "sa",
   name: "Saudi Arabia",
@@ -210,19 +197,6 @@ const countries = [{
     address: "109 CCT Building, 3rd Floor, Rm.3, Surawong Road, Suriyawongse, Bangrak, Bangkok 10500 109",
     contacts: ["+662-634-3240", "+662-634-3942"],
     email: "info@oecl.sg"
-  }]
-}, {
-  code: "mm",
-  name: "Myanmar",
-  lat: 16.8409,
-  lng: 96.1735,
-  cities: [{
-    name: "Yangon",
-    lat: 16.8409,
-    lng: 96.1735,
-    address: "No.608, Room 8B, Bo Soon Pat Tower, Merchant Street, Pabedan Township, Yangon, Myanmar",
-    contacts: ["+951 243158", "+951 377985, 243101"],
-    email: "info@globalconsol.com"
   }]
 }, {
   code: "bd",
