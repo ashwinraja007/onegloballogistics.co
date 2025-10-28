@@ -63,7 +63,7 @@ export const Footer = () => {
               <img src="/ogl-logo.png" alt="One Global Logistics" className="h-16 w-auto object-contain" loading="lazy" />
             </div>
             <p className="text-sm md:text-base text-gray-600 max-w-xs text-left">
-              Leading NVOCC operator providing LCL consolidation services to worldwide markets with dedication and transparency.
+              One Global Logistics LLC is a multinational logistics company headquartered in the UAE, offering end-to-end supply chain solutions across air, sea, and land.
             </p>
             <div className="flex space-x-3 mt-4">
               <motion.a href="https://www.facebook.com/gglusa" target="_blank" rel="noopener noreferrer" className="bg-brand-navy text-white p-2 rounded-full hover:bg-brand-gold transition" whileHover={{
