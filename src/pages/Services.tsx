@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Plane, Ship, Truck, Warehouse, Package } from "lucide-react";
+import { Plane, Ship, Truck, Warehouse, Package, Boxes } from "lucide-react";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -24,12 +24,20 @@ type ServiceCardProps = {
 const ServiceCard = ({ icon, title, description, points, image }: ServiceCardProps) => {
   const getServiceImage = () => {
     switch (title) {
-      case "Air Freight": return "/aircargo2.png";
-      case "Sea Freight": return "/oceanf.png";
-      case "Road Freight": return "/CARGO.png";
-      case "Customs Clearance & Documentation": return "/lovable-uploads/cc.jpg";
-      case "Warehousing & Distribution": return "/warhouseh1.png";
-      default: return image || "/placeholder-service.jpg";
+      case "Air Freight":
+        return "/aircargo2.png";
+      case "Sea Freight":
+        return "/oceanf.png";
+      case "Road Freight":
+        return "/CARGO.png";
+      case "Customs Clearance & Documentation":
+        return "/lovable-uploads/cc.jpg";
+      case "Warehousing & Distribution":
+        return "/warhouseh1.png";
+      case "Project Logistics":
+        return "/lovable-uploads/projectlogistics.jpg"; // ✅ optional new image
+      default:
+        return image || "/placeholder-service.jpg";
     }
   };
 
@@ -122,6 +130,23 @@ const Services = () => {
         "Value-added services",
       ],
     },
+    // ✅ NEW SERVICE
+    {
+      icon: <Boxes className="w-5 h-5" />,
+      title: "Project Logistics",
+      image: "/h4.png",
+      points: [
+        "Scope Assessment and Planning",
+        "Cargo Handling and Management",
+        "Multimodal Transport Coordination",
+        "Customs & Compliance",
+        "Scheduling and Execution",
+        "Route & Site Surveys",
+        "Health, Safety and Environment (HSE)",
+        "On-Site Logistics Support",
+        "Post-Delivery Support",
+      ],
+    },
   ];
 
   return (
@@ -133,7 +158,11 @@ const Services = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-gray-900 to-brand-navy text-white relative overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img src="/lovable-uploads/gp.jpg" alt="Services" className="w-full h-full object-cover opacity-20" />
+            <img
+              src="/lovable-uploads/gp.jpg"
+              alt="Services"
+              className="w-full h-full object-cover opacity-20"
+            />
             <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-brand-navy opacity-90" />
           </div>
 
@@ -144,7 +173,9 @@ const Services = () => {
               transition={{ duration: 0.5 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h1 className="text-2xl md:text-4xl font-bold mb-2 text-slate-50">Our Logistics Services</h1>
+              <h1 className="text-2xl md:text-4xl font-bold mb-2 text-slate-50">
+                Our Logistics Services
+              </h1>
               <div className="w-16 h-1 bg-white mx-auto mb-4"></div>
               <p className="text-base md:text-lg text-white/90 mb-4">
                 From air and ocean freight to specialized transportation solutions, we offer end-to-end logistics
