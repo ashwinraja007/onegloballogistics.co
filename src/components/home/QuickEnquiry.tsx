@@ -31,7 +31,7 @@ const QuickEnquiry = () => {
           viewport={{ once: true, amount: 0.4 }}
           className="text-center mb-10 md:mb-12"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-brand-navy/10 px-4 py-1.5 text-[13px] font-medium text-brand-navy">
+          <span className="inline-flex items-center gap-2 rounded-full bg-brand-navy/10 px-4 py-1.5 text-[13px] font-medium text-white">
             Contact Us
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-[#0B1739]">
