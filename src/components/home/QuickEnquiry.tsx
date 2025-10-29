@@ -195,7 +195,7 @@ const QuickEnquiry = () => {
 
                 {/* mini CTA */}
                 <a
-                  href="mailto:xxx@oneglobal.com"
+                  href="info@onegloballogistics.co"
                   className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-semibold text-brand-navy shadow-sm transition hover:shadow-md"
                 >
                   Email us directly <ArrowRight className="h-4 w-4" />
