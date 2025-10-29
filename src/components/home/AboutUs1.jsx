@@ -25,15 +25,7 @@ const AboutUs = () => {
             <p className="text-gray-600 mb-6 text-base text-justify">
               One Global Logistics LLC is a multinational logistics company headquartered in the UAE, offering end-to-end supply chain solutions across air, sea, and land. With a strong presence in many countries and a dedicated team of logistics professionals, we ensure reliability, speed, and transparency in every shipment.
             </p>
-            <Link to="/about">
-              <Button
-                variant="outline"
-                size="sm"
-                className="text-sm my-0 mx-0 rounded-md font-semibold bg-brand-navy text-slate-50"
-              >
-                Learn More
-              </Button>
-            </Link>
+           
           </motion.div>
 
           {/* Image Section */}
