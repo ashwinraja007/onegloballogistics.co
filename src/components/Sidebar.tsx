@@ -80,30 +80,6 @@ const countries = [{
     email: "info@oecl.sg"
   }]
 }, {
-  code: "ae",
-  name: "United Arab Emirates (UAE)",
-    lat: 25.2048,
-    lng: 55.2708,
-  cities: [{
-    name: "Dubai",
-    lat: 25.2048,
-    lng: 55.2708,
-    address: "Office # 509, Al Nazar Plaza, Oud Metha, Dubai, U.A.E",
-    contacts: ["+971 4 3433388"]
-  }, {
-    name: "JEBEL ALI",
-    lat: 24.9857,
-    lng: 55.1436,
-    address: "Warehouse# Zg06, Near Roundabout 13, North Zone, p. B No: 30821, jebel Ali, Dubai, U.A.E",
-    contacts: ["+971 4 8819787"]
-  }, {
-    name: "ABU DHABI",
-    lat: 24.4539,
-    lng: 54.3773,
-    address: "PB No: 30500, Office 3-1, Unit 101, 1st Floor, Al Jaber Jewellery Building, Al Khalidiya, Abu Dhabi, U.A.E",
-    contacts: ["+971 50 4337214"]
-  }]
-}, {
   code: "qa",
   name: "Qatar",
     lat: 25.276987,
