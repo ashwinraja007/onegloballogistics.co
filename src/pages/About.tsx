@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import AboutUs from "@/components/home/AboutUs";
+import AboutUs1 from "@/components/home/AboutUs1";
 import { VisionMission } from "@/components/about/VisionMission";
 import { motion } from "framer-motion";
 
@@ -36,7 +36,7 @@ const About = () => {
         </section>
 
         {/* ✅ About Us Section */}
-        <AboutUs />
+        <AboutUs1 />
 
         {/* ✅ Vision & Mission Section */}
         <VisionMission />
