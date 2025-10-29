@@ -31,7 +31,7 @@ const QuickEnquiry = () => {
           viewport={{ once: true, amount: 0.4 }}
           className="text-center mb-10 md:mb-12"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-brand-navy/10 px-4 py-1.5 text-[13px] font-medium text-white">
+          <span className="inline-flex items-center gap-2 rounded-full bg-brand-navy/10 px-4 py-1.5 text-[13px] font-medium text-black">
             Contact Us
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-[#0B1739]">
@@ -91,10 +91,10 @@ const QuickEnquiry = () => {
                       Phone
                     </h3>
                     <a
-                      href="tel:xxxxxxxxxxx"
+                      href="tel:+971 0563440073"
                       className="mt-1 inline-flex items-center gap-2 text-sm font-medium text-[#0B1739] hover:underline"
                     >
-                      xxx xxxx xxxx <ArrowRight className="h-3.5 w-3.5" />
+                      +971 0563440073<ArrowRight className="h-3.5 w-3.5" />
                     </a>
                   </div>
                 </motion.div>
@@ -113,10 +113,10 @@ const QuickEnquiry = () => {
                       Email
                     </h3>
                     <a
-                      href="mailto:xxx@oneglobal.com"
+                      href="mailto:info@onegloballogistics.co"
                       className="mt-1 inline-flex items-center gap-2 text-sm font-medium text-[#0B1739] hover:underline"
                     >
-                      xxx@oneglobal.com <ArrowRight className="h-3.5 w-3.5" />
+                      info@onegloballogistics.co <ArrowRight className="h-3.5 w-3.5" />
                     </a>
                   </div>
                 </motion.div>
@@ -138,7 +138,7 @@ const QuickEnquiry = () => {
                       href="#"
                       className="mt-1 inline-flex items-center gap-2 text-sm font-medium text-[#0B1739] hover:underline"
                     >
-                      [Website URL] <ArrowRight className="h-3.5 w-3.5" />
+                      www.onegloballogistics.co <ArrowRight className="h-3.5 w-3.5" />
                     </a>
                   </div>
                 </motion.div>
@@ -152,7 +152,7 @@ const QuickEnquiry = () => {
               <div className="absolute -left-10 -bottom-10 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
 
               <div className="relative z-10 p-6 md:p-8 lg:p-10 text-white">
-                <h3 className="text-xl font-semibold">Connect with us</h3>
+                <h3 className="text-xl text-white/80 font-semibold">Connect with us</h3>
                 <p className="mt-2 text-sm text-white/80">
                   Follow our updates and reach the team directly via social.
                 </p>
@@ -170,7 +170,7 @@ const QuickEnquiry = () => {
                     </span>
                   </a>
                   <a
-                    href="https://www.facebook.com/oneglobalqatar"
+                    href=""
                     target="_blank"
                     rel="noreferrer"
                     className="group inline-flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-medium ring-1 ring-white/15 backdrop-blur hover:bg-white/15 transition"
@@ -181,7 +181,7 @@ const QuickEnquiry = () => {
                     </span>
                   </a>
                   <a
-                    href="https://www.instagram.com/oneglobalqatar/"
+                    href="https://"
                     target="_blank"
                     rel="noreferrer"
                     className="group inline-flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-medium ring-1 ring-white/15 backdrop-blur hover:bg-white/15 transition"
