@@ -177,7 +177,7 @@ const QuickEnquiry = () => {
                   >
                     <span>Facebook</span>
                     <span className="opacity-70 group-hover:opacity-100 transition">
-                      → @oneglobalqatar
+                      → @oneglobal
                     </span>
                   </a>
                   <a
@@ -188,7 +188,7 @@ const QuickEnquiry = () => {
                   >
                     <span>Instagram</span>
                     <span className="opacity-70 group-hover:opacity-100 transition">
-                      → @oneglobalqatar
+                      → @oneglobal
                     </span>
                   </a>
                 </div>
