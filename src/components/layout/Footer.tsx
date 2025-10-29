@@ -66,7 +66,7 @@ export const Footer = () => {
               One Global Logistics LLC is a multinational logistics company headquartered in the UAE, offering end-to-end supply chain solutions across air, sea, and land.
             </p>
             <div className="flex space-x-3 mt-4">
-              <motion.a href="https://www.facebook.com/gglusa" target="_blank" rel="noopener noreferrer" className="bg-brand-navy text-white p-2 rounded-full hover:bg-brand-gold transition" whileHover={{
+              <motion.a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="bg-brand-navy text-white p-2 rounded-full hover:bg-brand-gold transition" whileHover={{
               y: -3,
               scale: 1.1
             }} whileTap={{
@@ -74,7 +74,7 @@ export const Footer = () => {
             }}>
                 <Facebook size={18} />
               </motion.a>
-              <motion.a href="https://www.linkedin.com/company/gglus/" target="_blank" rel="noopener noreferrer" className="bg-brand-navy text-white p-2 rounded-full hover:bg-brand-gold transition" whileHover={{
+              <motion.a href="https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="bg-brand-navy text-white p-2 rounded-full hover:bg-brand-gold transition" whileHover={{
               y: -3,
               scale: 1.1
             }} whileTap={{
