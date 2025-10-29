@@ -38,7 +38,8 @@ const QuickEnquiry = () => {
             We’re here to help
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm md:text-base text-slate-600">
-            Reach our team for enquiries, partnerships, or support. We usually respond within one business day.
+            Reach our team for enquiries, partnerships, or support. We usually
+            respond within one business day.
           </p>
         </motion.div>
 
@@ -91,10 +92,11 @@ const QuickEnquiry = () => {
                       Phone
                     </h3>
                     <a
-                      href="tel:+971 0563440073"
+                      href="tel:+971563440073"
                       className="mt-1 inline-flex items-center gap-2 text-sm font-medium text-[#0B1739] hover:underline"
                     >
-                      +971 0563440073<ArrowRight className="h-3.5 w-3.5" />
+                      +971 0563440073
+                      <ArrowRight className="h-3.5 w-3.5" />
                     </a>
                   </div>
                 </motion.div>
@@ -116,7 +118,8 @@ const QuickEnquiry = () => {
                       href="mailto:info@onegloballogistics.co"
                       className="mt-1 inline-flex items-center gap-2 text-sm font-medium text-[#0B1739] hover:underline"
                     >
-                      info@onegloballogistics.co <ArrowRight className="h-3.5 w-3.5" />
+                      info@onegloballogistics.co
+                      <ArrowRight className="h-3.5 w-3.5" />
                     </a>
                   </div>
                 </motion.div>
@@ -135,10 +138,13 @@ const QuickEnquiry = () => {
                       Website
                     </h3>
                     <a
-                      href="#"
+                      href="https://www.onegloballogistics.co"
+                      target="_blank"
+                      rel="noreferrer"
                       className="mt-1 inline-flex items-center gap-2 text-sm font-medium text-[#0B1739] hover:underline"
                     >
-                      www.onegloballogistics.co <ArrowRight className="h-3.5 w-3.5" />
+                      www.onegloballogistics.co
+                      <ArrowRight className="h-3.5 w-3.5" />
                     </a>
                   </div>
                 </motion.div>
@@ -152,7 +158,9 @@ const QuickEnquiry = () => {
               <div className="absolute -left-10 -bottom-10 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
 
               <div className="relative z-10 p-6 md:p-8 lg:p-10 text-white">
-                <h3 className="text-xl text-white/80 font-semibold">Connect with us</h3>
+                <h3 className="text-xl text-white/80 font-semibold">
+                  Connect with us
+                </h3>
                 <p className="mt-2 text-sm text-white/80">
                   Follow our updates and reach the team directly via social.
                 </p>
@@ -170,7 +178,7 @@ const QuickEnquiry = () => {
                     </span>
                   </a>
                   <a
-                    href=""
+                    href="https://facebook.com/oneglobal"
                     target="_blank"
                     rel="noreferrer"
                     className="group inline-flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-medium ring-1 ring-white/15 backdrop-blur hover:bg-white/15 transition"
@@ -181,7 +189,7 @@ const QuickEnquiry = () => {
                     </span>
                   </a>
                   <a
-                    href="https://"
+                    href="https://instagram.com/oneglobal"
                     target="_blank"
                     rel="noreferrer"
                     className="group inline-flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-medium ring-1 ring-white/15 backdrop-blur hover:bg-white/15 transition"
@@ -195,7 +203,7 @@ const QuickEnquiry = () => {
 
                 {/* mini CTA */}
                 <a
-                  href="info@onegloballogistics.co"
+                  href="mailto:info@onegloballogistics.co?subject=Enquiry%20from%20Website&body=Hi%20One%20Global%20Team%2C%0A%0AI%27d%20like%20to%20know%20more%20about..."
                   className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-semibold text-brand-navy shadow-sm transition hover:shadow-md"
                 >
                   Email us directly <ArrowRight className="h-4 w-4" />
