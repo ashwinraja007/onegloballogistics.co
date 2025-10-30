@@ -38,7 +38,7 @@ export const Footer = () => {
     {
       title: "Dubai Office",
       address:
-        "ONE GLOBAL LOGISTICS L.L.C, Insurance Building -202+201,, CR NO : 152300,AI Rega, 57-0, Dubai, UAE",
+        "ONE GLOBAL LOGISTICS L.L.C, Insurance Building -202+201, CR NO : 152300, AI Rega, 57-0, Dubai, UAE",
     },
   ];
 
