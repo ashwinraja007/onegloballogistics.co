@@ -44,7 +44,7 @@ export const Footer = () => {
   };
   const addresses: AddressInfo[] = [{
     title: "Dubai Office",
-    address: "One Global Logistics LLC, INSURANCE BUILDING – 202 + 201,CR NO: 152300, Al Rega,57-O, Dubai, UAE"
+    address: "One Global Logistics LLC, INSURANCE BUILDING – 202 + 201,CR NO: 152300, Al Rega,57-O, Dubai, UAE",
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const handleNext = () => {
     setCurrentIndex(prev => (prev + 1) % addresses.length);
