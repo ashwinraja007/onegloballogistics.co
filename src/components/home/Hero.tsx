@@ -32,28 +32,28 @@ const portalLinks = [
     icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" />,
     title: 'ConsolMate',
     description: 'Access shipping dashboard',
-    url: 'https://consolmate.com/auth/login/9',
+    url: '',
     external: true
   },
   {
     icon: <UserCircle className="w-4 h-4 sm:w-5 sm:h-5" />,
     title: 'Partner Portal',
     description: 'Manage partnership',
-    url: 'https://pp.onlinetracking.co/auth/login/9',
+    url: '',
     external: true
   },
   {
     icon: <SearchCode className="w-4 h-4 sm:w-5 sm:h-5" />,
     title: 'Tracking',
     description: 'Track your shipment',
-    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:102:::::P0_GROUP_RID:188',
+    url: '',
     external: true
   },
   {
     icon: <Ship className="w-4 h-4 sm:w-5 sm:h-5" />,
     title: 'Sailing Schedule',
     description: 'View schedules',
-    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:104:::::P0_GROUP_RID:188',
+    url: '',
     external: true
   },
   {
