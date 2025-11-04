@@ -64,17 +64,13 @@ export const Header = () => {
 
             {/* Second Logo + Text */}
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600 whitespace-nowrap">
-                A venture of
-              </span>
+              
               <img
                 src="/group.png"
                 alt="1 Global Enterprises"
-                className="h-8 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
-              <span className="text-sm text-gray-800 font-medium whitespace-nowrap">
-                1 Global Enterprises, Singapore
-              </span>
+              
             </div>
           </div>
 
