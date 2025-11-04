@@ -126,24 +126,7 @@ export const Header = () => {
             </button>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-2">
-              <a
-                href="https://www.linkedin.com/company/gglus/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-brand-gold transition-colors"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="https://www.facebook.com/gglusa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-brand-gold transition-colors"
-              >
-                <Facebook size={20} />
-              </a>
-            </div>
+            
 
             <CountrySelector />
 
