@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -19,15 +19,14 @@ type ServiceCardProps = {
   image?: string;
   description?: string;
   points?: string[];
+  link?: string;
 };
 
-const ServiceCard = ({ icon, title, description, points, image }: ServiceCardProps) => {
+const ServiceCard = ({ icon, title, description, points, image, link }: ServiceCardProps) => {
   const getServiceImage = () => {
     switch (title) {
       case "Air Freight":
         return "/aircargo2.png";
-      case "Sea Freight":
-        return "/oceanf.png";
       case "Sea Freight":
         return "/oceanf.png";
       case "Road Freight":
@@ -37,7 +36,7 @@ const ServiceCard = ({ icon, title, description, points, image }: ServiceCardPro
       case "Warehousing & Distribution":
         return "/warhouseh1.png";
       case "Project Logistics":
-        return "/h4.png"; // ✅ optional new image
+        return "/h4.png";
       default:
         return image || "/placeholder-service.jpg";
     }
@@ -58,6 +57,7 @@ const ServiceCard = ({ icon, title, description, points, image }: ServiceCardPro
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
+
       <div className="p-6 flex flex-col justify-center">
         <div className="bg-brand-navy text-brand-navy p-2 rounded-full inline-block mb-2 w-fit bg-white">
           {icon}
@@ -75,6 +75,16 @@ const ServiceCard = ({ icon, title, description, points, image }: ServiceCardPro
             <p className="text-gray-600 text-sm mb-4 line-clamp-4">{description}</p>
           )
         )}
+
+        {/* ✅ Learn More Button */}
+        {link && (
+          <Link
+            to={link}
+            className="mt-auto inline-block px-5 py-2 text-sm font-medium text-white bg-brand-navy rounded-full shadow hover:bg-brand-blue transition-all duration-300 w-fit"
+          >
+            Learn More →
+          </Link>
+        )}
       </div>
     </motion.div>
   );
@@ -91,6 +101,7 @@ const Services = () => {
         "Airport-to-airport & door-to-door",
         "Dangerous goods & temperature-sensitive cargo",
       ],
+      link: "/services/air-freight",
     },
     {
       icon: <Ship className="w-5 h-5" />,
@@ -101,6 +112,7 @@ const Services = () => {
         "Breakbulk and Ro-Ro solutions",
         "Global consolidation services",
       ],
+      link: "/services/sea-freight",
     },
     {
       icon: <Truck className="w-5 h-5" />,
@@ -111,6 +123,7 @@ const Services = () => {
         "Cross-border trucking",
         "Last-mile delivery",
       ],
+      link: "/services/road-freight",
     },
     {
       icon: <Package className="w-5 h-5" />,
@@ -121,6 +134,7 @@ const Services = () => {
         "Free zone & mainland clearance",
         "Compliance support",
       ],
+      link: "/services/customs-clearance",
     },
     {
       icon: <Warehouse className="w-5 h-5" />,
@@ -131,17 +145,18 @@ const Services = () => {
         "Inventory management",
         "Value-added services",
       ],
+      link: "/services/warehousing",
     },
-    // ✅ NEW SERVICE
     {
       icon: <Boxes className="w-5 h-5" />,
       title: "Project Logistics",
       image: "/h4.png",
       points: [
-        "Planning & Coordination: Scope assessment, multimodal transport, scheduling, and route surveys.",  
+        "Planning & Coordination: Scope assessment, multimodal transport, scheduling, and route surveys.",
         "Operations & Management: Cargo handling, on-site logistics, and execution.",
-        "Compliance & Support: Customs, HSE standards, and post-delivery support.",        
+        "Compliance & Support: Customs, HSE standards, and post-delivery support.",
       ],
+      link: "/services/project-logistics",
     },
   ];
 
