@@ -3,7 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Plane, Ship, Truck, Warehouse, Package, Boxes } from "lucide-react";
+import { Plane, Ship, Truck, Warehouse, Package, Boxes, Building2 } from "lucide-react"; // ✅ added Building2 for 3PL
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -37,6 +37,8 @@ const ServiceCard = ({ icon, title, description, points, image, link }: ServiceC
         return "/warhouseh1.png";
       case "Project Logistics":
         return "/h4.png";
+      case "3PL (Third-Party Logistics)":
+        return "/abstract-glowing-blurry-global-delivery-scheme-hol-2025-10-15-01-51-06-utc.jpg";
       default:
         return image || "/placeholder-service.jpg";
     }
@@ -50,6 +52,7 @@ const ServiceCard = ({ icon, title, description, points, image, link }: ServiceC
       viewport={{ once: true }}
       className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group grid grid-cols-1 md:grid-cols-2"
     >
+      {/* Image */}
       <div className="w-full h-48 md:h-64">
         <img
           src={getServiceImage()}
@@ -58,6 +61,7 @@ const ServiceCard = ({ icon, title, description, points, image, link }: ServiceC
         />
       </div>
 
+      {/* Content */}
       <div className="p-6 flex flex-col justify-center">
         <div className="bg-brand-navy text-brand-navy p-2 rounded-full inline-block mb-2 w-fit bg-white">
           {icon}
@@ -158,6 +162,19 @@ const Services = () => {
       ],
       link: "/services/project-logistics",
     },
+    // ✅ NEW 3PL SERVICE CARD
+    {
+      icon: <Building2 className="w-5 h-5" />,
+      title: "3PL (Third-Party Logistics)",
+      image: "/abstract-glowing-blurry-global-delivery-scheme-hol-2025-10-15-01-51-06-utc.jpg",
+      points: [
+        "Integrated logistics and supply chain outsourcing",
+        "Scalable warehousing, distribution, and transportation management",
+        "Technology-driven visibility and real-time tracking",
+        "Flexible, cost-efficient fulfillment tailored to your business",
+      ],
+      link: "/services/3pl",
+    },
   ];
 
   return (
@@ -189,8 +206,8 @@ const Services = () => {
               </h1>
               <div className="w-16 h-1 bg-white mx-auto mb-4"></div>
               <p className="text-base md:text-lg text-white/90 mb-4">
-                From air and ocean freight to specialized transportation solutions, we offer end-to-end logistics
-                expertise to meet your global shipping needs.
+                From air and ocean freight to specialized transportation and 3PL solutions,
+                we offer end-to-end logistics expertise to meet your global shipping needs.
               </p>
             </motion.div>
           </div>
