@@ -4,26 +4,15 @@ import { motion } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Plane, Ship, Truck, Package, Boxes, Warehouse } from "lucide-react";
 
-/* Helper: create a clean slug from the card title */
-const slugify = (s: string) =>
-  s
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-");
-
 type OneGlobalCardProps = {
   image: string;
   title: string;
   points: string[];
   icon: React.ReactElement;
-  link?: string; // optional custom link
+  link: string;
 };
 
 const OneGlobalCard = ({ image, title, points, icon, link }: OneGlobalCardProps) => {
-  const href = link || `/services/${slugify(title)}`;
-
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -64,7 +53,7 @@ const OneGlobalCard = ({ image, title, points, icon, link }: OneGlobalCardProps)
         {/* Learn More button */}
         <div className="mt-4">
           <Link
-            to={href}
+            to={link}
             className="inline-block rounded-full px-4 py-2 text-sm font-medium text-white bg-[#0B1739] hover:bg-[#13225a] transition-colors duration-200 shadow"
             aria-label={`Learn more about ${title}`}
           >
@@ -90,36 +79,42 @@ export const Services = () => {
         "Airport-to-airport & door-to-door",
         "Dangerous goods & temperature-sensitive cargo",
       ],
+      link: "/services/air-freight",
     },
     {
       image: "/oceanf.png",
       title: "Sea Freight",
       icon: <Ship />,
       points: ["FCL / LCL shipping", "Breakbulk and Ro-Ro solutions", "Global consolidation services"],
+      link: "/services/sea-freight",
     },
     {
       image: "/CARGO.png",
       title: "Road Freight",
       icon: <Truck />,
       points: ["GCC distribution", "Cross-border trucking", "Last-mile delivery"],
+      link: "/services/road-freight",
     },
     {
       image: "/lovable-uploads/cc.jpg",
       title: "Customs Clearance & Documentation",
       icon: <Package />,
       points: ["Import/export documentation", "Free zone & mainland clearance", "Compliance support"],
+      link: "/services/customs-clearance",
     },
     {
       image: "/warhouseh1.png",
       title: "Warehousing & Distribution",
       icon: <Warehouse />,
       points: ["Bonded & non-bonded facilities", "Inventory management", "Value-added services"],
+      link: "/services/warehousing",
     },
     {
       image: "/h4.png",
       title: "Project Logistics",
       icon: <Boxes />,
       points: ["Planning & Coordination", "Operations & Management", "Compliance & Support"],
+      link: "/services/project-logistics",
     },
   ];
 
