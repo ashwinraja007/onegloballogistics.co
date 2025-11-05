@@ -16,6 +16,12 @@ import LCL from "./pages/services/LCL";
 import ThreePL from "./pages/services/ThreePL";
 import CFS from "./pages/services/CFS";
 import ProjectLogistics from "./pages/services/ProjectLogistics";
+import Warehousing from "./pages/services/Warehousing";
+import CustomsClearance from "./pages/services/CustomsClearance";
+import Transportation from "./pages/services/Transportation";
+import OceanFreight from "./pages/services/OceanFreight";
+import AirFreight from "./pages/services/AirFreight";
+import ThreePL from "./pages/services/ThreePL";
 import GlobalPresence from "./pages/GlobalPresence";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 
@@ -43,6 +49,12 @@ function App() {
             <Route path="/services/3pl" element={<ThreePL />} />
             <Route path="/services/cfs" element={<CFS />} />
             <Route path="/services/project-logistics" element={<ProjectLogistics />} />
+             <Route path="/services/warehousing" element={<Warehousing />} />
+             <Route path="/services/customs-clearance" element={<CustomsClearance />} />
+            <Route path="/services/road-freight" element={<Transportation />} />
+            <Route path="/services/sea-freight" element={<OceanFreight />} />
+            <Route path="/services/air-freight" element={<AirFreight />} />
+            <Route path="/services/3pl" element={<ThreePL />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
