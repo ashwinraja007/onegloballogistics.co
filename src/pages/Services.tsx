@@ -170,7 +170,6 @@ const Services = () => {
       points: [
         "Scalable warehousing, distribution, and transportation management",
         "Technology-driven visibility and real-time tracking",
-        "Flexible, cost-efficient fulfillment tailored to your business",
       ],
       link: "/services/3pl",
     },
