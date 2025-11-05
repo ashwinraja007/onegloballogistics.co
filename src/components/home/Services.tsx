@@ -3,6 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Plane, Ship, Truck, Package, Boxes, Warehouse } from "lucide-react";
+import { Building2 } from "lucide-react"; // ✅ for 3PL icon
 
 type OneGlobalCardProps = {
   image: string;
@@ -115,6 +116,19 @@ export const Services = () => {
       icon: <Boxes />,
       points: ["Planning & Coordination", "Operations & Management", "Compliance & Support"],
       link: "/services/project-logistics",
+    },
+    // ✅ NEW CARD: 3PL (Third-Party Logistics)
+    {
+      image: "/abstract-glowing-blurry-global-delivery-scheme-hol-2025-10-15-01-51-06-utc.jpg",
+      title: "3PL (Third-Party Logistics)",
+      icon: <Building2 />,
+      points: [
+        "Integrated logistics and supply chain outsourcing",
+        "Scalable warehousing, distribution, and transportation management",
+        "Technology-driven visibility and real-time tracking",
+        "Flexible, cost-efficient fulfillment tailored to your business",
+      ],
+      link: "/services/3pl",
     },
   ];
 
