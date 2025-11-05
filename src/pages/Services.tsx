@@ -152,9 +152,9 @@ const Services = () => {
       title: "Project Logistics",
       image: "/h4.png",
       points: [
-        "Planning & Coordination: Scope assessment, multimodal transport, scheduling, and route surveys.",
-        "Operations & Management: Cargo handling, on-site logistics, and execution.",
-        "Compliance & Support: Customs, HSE standards, and post-delivery support.",
+        "Planning & Coordination",
+        "Operations & Management",
+        "Compliance & Support",
       ],
       link: "/services/project-logistics",
     },
