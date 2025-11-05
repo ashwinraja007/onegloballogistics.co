@@ -168,7 +168,6 @@ const Services = () => {
       title: "3PL (Third-Party Logistics)",
       image: "/abstract-glowing-blurry-global-delivery-scheme-hol-2025-10-15-01-51-06-utc.jpg",
       points: [
-        "Integrated logistics and supply chain outsourcing",
         "Scalable warehousing, distribution, and transportation management",
         "Technology-driven visibility and real-time tracking",
         "Flexible, cost-efficient fulfillment tailored to your business",
