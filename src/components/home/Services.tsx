@@ -1,10 +1,29 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Plane, Ship, Truck, Package, Boxes, Warehouse } from "lucide-react";
 
-const OneGlobalCard = ({ image, title, points, icon }) => {
+/* Helper: create a clean slug from the card title */
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+
+type OneGlobalCardProps = {
+  image: string;
+  title: string;
+  points: string[];
+  icon: React.ReactElement;
+  link?: string; // optional custom link
+};
+
+const OneGlobalCard = ({ image, title, points, icon, link }: OneGlobalCardProps) => {
+  const href = link || `/services/${slugify(title)}`;
+
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -41,6 +60,17 @@ const OneGlobalCard = ({ image, title, points, icon }) => {
             <li key={idx}>{pt}</li>
           ))}
         </ul>
+
+        {/* Learn More button */}
+        <div className="mt-4">
+          <Link
+            to={href}
+            className="inline-block rounded-full px-4 py-2 text-sm font-medium text-white bg-[#0B1739] hover:bg-[#13225a] transition-colors duration-200 shadow"
+            aria-label={`Learn more about ${title}`}
+          >
+            Learn More →
+          </Link>
+        </div>
       </div>
     </motion.div>
   );
@@ -50,7 +80,7 @@ export const Services = () => {
   const location = useLocation();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
 
-  const services = [
+  const services: OneGlobalCardProps[] = [
     {
       image: "/aircargo2.png",
       title: "Air Freight",
@@ -65,51 +95,31 @@ export const Services = () => {
       image: "/oceanf.png",
       title: "Sea Freight",
       icon: <Ship />,
-      points: [
-        "FCL / LCL shipping",
-        "Breakbulk and Ro-Ro solutions",
-        "Global consolidation services",
-      ],
+      points: ["FCL / LCL shipping", "Breakbulk and Ro-Ro solutions", "Global consolidation services"],
     },
     {
       image: "/CARGO.png",
       title: "Road Freight",
       icon: <Truck />,
-      points: [
-        "GCC distribution",
-        "Cross-border trucking",
-        "Last-mile delivery",
-      ],
+      points: ["GCC distribution", "Cross-border trucking", "Last-mile delivery"],
     },
     {
       image: "/lovable-uploads/cc.jpg",
       title: "Customs Clearance & Documentation",
       icon: <Package />,
-      points: [
-        "Import/export documentation",
-        "Free zone & mainland clearance",
-        "Compliance support",
-      ],
+      points: ["Import/export documentation", "Free zone & mainland clearance", "Compliance support"],
     },
     {
       image: "/warhouseh1.png",
       title: "Warehousing & Distribution",
       icon: <Warehouse />,
-      points: [
-        "Bonded & non-bonded facilities",
-        "Inventory management",
-        "Value-added services",
-      ],
+      points: ["Bonded & non-bonded facilities", "Inventory management", "Value-added services"],
     },
     {
       image: "/h4.png",
       title: "Project Logistics",
       icon: <Boxes />,
-      points: [
-        "Planning & Coordination",  
-        "Operations & Management",
-        "Compliance & Support",   
-      ],
+      points: ["Planning & Coordination", "Operations & Management", "Compliance & Support"],
     },
   ];
 
