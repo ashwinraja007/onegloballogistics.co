@@ -82,11 +82,11 @@ const AirFreight = () => {
               <div className="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
 
               <p className="text-gray-700 mb-6 text-justify font-normal">
-                At GGL India, we offer a comprehensive range of air freight services designed to meet all your shipping needs. Our expert air freight teams provide seamless air import, export, and express options, all on a convenient door-to-door basis.
+                At One global Logistics, we offer a comprehensive range of air freight services designed to meet all your shipping needs. Our expert air freight teams provide seamless air import, export, and express options, all on a convenient door-to-door basis.
               </p>
 
               <p className="text-gray-700 mb-6 text-justify font-normal">
-                <strong>Global Reach with Strategic Hubs:</strong> With a strong presence in key transshipment hubs such as Singapore, Malaysia, Sri Lanka, and Dubai, GGL India ensures direct weekly sailings to all major destinations worldwide. This strategic network allows us to offer reliable and timely air freight services to and from India.
+                <strong>Global Reach with Strategic Hubs:</strong> With a strong presence in key transshipment hubs such as Singapore, Malaysia, Sri Lanka, and Dubai,One global Logistics ensures direct weekly sailings to all major destinations worldwide. This strategic network allows us to offer reliable and timely air freight services to and from India.
               </p>
 
               <div className="text-gray-700 text-left font-normal">
