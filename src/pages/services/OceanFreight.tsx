@@ -84,7 +84,7 @@ const OceanFreight = () => {
               <div className="w-24 h-1 bg-brand-gold mx-auto mb-8" />
 
               <p className="text-lg mb-6 leading-relaxed text-justify">
-                At <strong>GGL India</strong>, we specialize in delivering comprehensive ocean freight solutions tailored to meet the diverse requirements of our clients. Whether you’re shipping bulk cargo or small consignments, our services are built for <strong>efficiency, reliability, and cost-effectiveness</strong>.
+                At <strong>One global Logistics</strong>, we specialize in delivering comprehensive ocean freight solutions tailored to meet the diverse requirements of our clients. Whether you’re shipping bulk cargo or small consignments, our services are built for <strong>efficiency, reliability, and cost-effectiveness</strong>.
               </p>
 
               <div className="bg-blue-50 border-l-4 border-brand-gold p-6 rounded-lg mb-6 shadow-sm">
