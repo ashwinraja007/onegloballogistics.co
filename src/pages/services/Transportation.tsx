@@ -80,12 +80,12 @@ const Transportation = () => {
               </h2>
               <div className="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
               <p className="text-gray-700 mb-6 text-justify">
-                At GGL India, we understand that efficient transportation and distribution are the backbone of a seamless supply chain. Our dedicated fleet and robust infrastructure ensure that your goods reach their destination on time, every time.
+                At One global Logistics, we understand that efficient transportation and distribution are the backbone of a seamless supply chain. Our dedicated fleet and robust infrastructure ensure that your goods reach their destination on time, every time.
               </p>
 
               <h3 className="text-xl font-semibold text-gray-800 mb-2 mt-8">Domestic Distribution Network</h3>
               <p className="text-gray-700 mb-6 text-justify">
-                With a strategically located network of offices in Mumbai, New Delhi, Kolkata, Bangalore, and Chennai, GGL India offers comprehensive domestic transportation solutions. Our fleet is equipped to handle various cargo types, ensuring safe and timely deliveries across the country.
+                With a strategically located network of offices in Mumbai, New Delhi, Kolkata, Bangalore, and Chennai, One global Logistics offers comprehensive domestic transportation solutions. Our fleet is equipped to handle various cargo types, ensuring safe and timely deliveries across the country.
               </p>
 
               <h3 className="text-xl font-semibold text-gray-800 mb-2 mt-8">Fleet & Operational Excellence</h3>
