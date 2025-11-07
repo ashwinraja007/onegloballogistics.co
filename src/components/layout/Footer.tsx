@@ -38,7 +38,7 @@ export const Footer = () => {
     {
       title: "Dubai Office",
       address:
-        "One Global Logistics LLC,Office #509, Al Nazar Plaza,Oud Metha, Dubai, UAE",
+        "One Global Logistics LLC,Office #509, Al Nazar Plaza,Oud Metha, Dubai, UAE.",
     },
   ];
 
