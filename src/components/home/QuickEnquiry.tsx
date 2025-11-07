@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Globe, ArrowRight } from "lucide-react";
 
 const ADDRESS =
-  "ONE GLOBAL LOGISTICS L.L.C, Insurance Building -202+201, CR NO : 152300, AI Rega, 57-0, Dubai, UAE";
+  "One Global Logistics LLC,Office #509, Al Nazar Plaza,Oud Metha, Dubai, UAE.";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
