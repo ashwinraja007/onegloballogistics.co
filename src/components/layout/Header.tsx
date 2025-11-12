@@ -66,7 +66,7 @@ export const Header = () => {
             <div className="flex items-center gap-2">
               {/* ✅ Make 1 Global Enterprises logo clickable */}
               <a
-                href="https://www.ggl.sg/"
+                href="https://www.1ge.sg/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
