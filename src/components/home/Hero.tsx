@@ -16,6 +16,18 @@ const Hero = () => {
   }, {
     src: '/h4.png',
     text: 'Get the best logistics service at very competitive prices'
+  }, {
+    src: '/15.png',
+    text: 'Cost effective and top quality LCL & FCL services'
+  }, {
+    src: '/13.png',
+    text: 'Top-notch warehousing services for all your shipments'
+  }, {
+    src: '/12.png',
+    text: 'Get the best LCL & FCL services at unbeatable prices'
+  }, {
+    src: '/14.png',
+    text: 'Get the best logistics service at very competitive prices'
   }];
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 300);
