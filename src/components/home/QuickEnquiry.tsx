@@ -167,7 +167,7 @@ const QuickEnquiry = () => {
 
                 <div className="mt-6 grid grid-cols-1 gap-3">
                   <a
-                    href="https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true"
+                    href="https://www.linkedin.com/company/one-glogal-logistics-llc/"
                     target="_blank"
                     rel="noreferrer"
                     className="group inline-flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-medium ring-1 ring-white/15 backdrop-blur hover:bg-white/15 transition"
@@ -175,28 +175,6 @@ const QuickEnquiry = () => {
                     <span>LinkedIn</span>
                     <span className="opacity-70 group-hover:opacity-100 transition">
                       → onegloballogistics
-                    </span>
-                  </a>
-                  <a
-                    href="https://facebook.com/oneglobal"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-medium ring-1 ring-white/15 backdrop-blur hover:bg-white/15 transition"
-                  >
-                    <span>Facebook</span>
-                    <span className="opacity-70 group-hover:opacity-100 transition">
-                      → @oneglobal
-                    </span>
-                  </a>
-                  <a
-                    href="https://instagram.com/oneglobal"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-medium ring-1 ring-white/15 backdrop-blur hover:bg-white/15 transition"
-                  >
-                    <span>Instagram</span>
-                    <span className="opacity-70 group-hover:opacity-100 transition">
-                      → @oneglobal
                     </span>
                   </a>
                 </div>
