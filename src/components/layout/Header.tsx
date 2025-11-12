@@ -35,7 +35,7 @@ export const Header = () => {
             el.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         }
-      }, 500); // wait for navigation to complete
+      }, 500);
     }
   };
 
@@ -64,13 +64,18 @@ export const Header = () => {
 
             {/* Second Logo + Text */}
             <div className="flex items-center gap-2">
-              
-              <img
-                src="/group.png"
-                alt="1 Global Enterprises"
-                className="h-11 w-auto object-contain"
-              />
-              
+              {/* ✅ Make 1 Global Enterprises logo clickable */}
+              <a
+                href="https://www.ggl.sg/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/group.png"
+                  alt="1 Global Enterprises"
+                  className="h-11 w-auto object-contain hover:opacity-90 transition-opacity"
+                />
+              </a>
             </div>
           </div>
 
@@ -125,12 +130,8 @@ export const Header = () => {
               Global Presence
             </button>
 
-            {/* Social Icons */}
-            
-
             <CountrySelector />
 
-            {/* Quote Button */}
             <button
               onClick={() => handleNavClick("/contact", "contact-form")}
               className="px-5 py-2 transition font-medium bg-slate-900 hover:bg-slate-800 text-slate-50 rounded-xl"
