@@ -71,18 +71,9 @@ export const Footer = () => {
               the UAE, offering end-to-end supply chain solutions across air, sea, and land.
             </p>
             <div className="flex space-x-3 mt-4">
+              
               <motion.a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-brand-navy text-white p-2 rounded-full hover:bg-brand-gold transition"
-                whileHover={{ y: -3, scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Facebook size={18} />
-              </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true"
+                href="https://www.linkedin.com/company/one-glogal-logistics-llc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-brand-navy text-white p-2 rounded-full hover:bg-brand-gold transition"
