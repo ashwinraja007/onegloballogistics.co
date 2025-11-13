@@ -9,7 +9,9 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
-  // Scroll effect for header background
+  // Transparent only when at top of page
+  const isTransparent = !scrolled;
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -18,25 +20,22 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Enhanced navigation with scroll-to-id support
   const handleNavClick = (path: string, scrollToId?: string) => {
     setIsMobileMenuOpen(false);
+
     if (location.pathname === path && scrollToId) {
       const el = document.getElementById(scrollToId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    } else {
-      navigate(path);
-      setTimeout(() => {
-        if (scrollToId) {
-          const el = document.getElementById(scrollToId);
-          if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        }
-      }, 500);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
     }
+
+    navigate(path);
+    setTimeout(() => {
+      if (scrollToId) {
+        const el = document.getElementById(scrollToId);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 400);
   };
 
   const handleLogoClick = () => {
@@ -44,88 +43,81 @@ export const Header = () => {
     window.scrollTo(0, 0);
   };
 
+  const textColor = isTransparent ? "text-white" : "text-gray-800";
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white py-2 shadow-md" : "bg-white/95 py-2"
-      }`}
+      className="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 py-2"
+      style={{
+        backgroundColor: isTransparent ? "transparent" : "#ffffff",
+        boxShadow: isTransparent
+          ? "none"
+          : "0 4px 12px rgba(15, 23, 42, 0.12)",
+      }}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* ---------- Logo Section ---------- */}
+          {/* ---------- LOGOS ---------- */}
           <div className="flex items-center gap-3">
             {/* Main Logo */}
             <img
               src="/ogl-logo.png"
-              alt="One Global Logistics"
               onClick={handleLogoClick}
-              className="h-16 w-auto cursor-pointer transition-all duration-300 object-contain"
+              className="h-16 w-auto cursor-pointer object-contain"
+              alt="One Global Logistics"
             />
 
-            {/* Second Logo + Text */}
-            <div className="flex items-center gap-2">
-              {/* ✅ Make 1 Global Enterprises logo clickable */}
-              <a
-                href="https://www.1ge.sg/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="/group.png"
-                  alt="1 Global Enterprises"
-                  className="h-11 w-auto object-contain hover:opacity-90 transition-opacity"
-                />
-              </a>
-            </div>
+            {/* Second Logo (6958.png only on transparent hero) */}
+            <a
+              href="https://www.1ge.sg/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={isTransparent ? "/6958.png" : "/group.png"}
+                className="h-11 w-auto object-contain"
+                alt="1 Global Enterprises"
+              />
+            </a>
           </div>
 
-          {/* ---------- Mobile Menu Button ---------- */}
+          {/* ---------- MOBILE MENU ICON ---------- */}
           <button
-            className="md:hidden text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-gold rounded-md p-1"
+            className={`md:hidden p-1 ${textColor}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
 
-          {/* ---------- Desktop Navigation ---------- */}
+          {/* ---------- DESKTOP NAV ---------- */}
           <nav className="hidden md:flex gap-6 items-center">
             <button
               onClick={() => handleNavClick("/")}
-              className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${
-                location.pathname === "/" ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} font-medium hover:text-brand-gold`}
             >
               Home
             </button>
             <button
               onClick={() => handleNavClick("/about")}
-              className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${
-                location.pathname === "/about" ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} font-medium hover:text-brand-gold`}
             >
               About Us
             </button>
             <button
               onClick={() => handleNavClick("/services")}
-              className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${
-                location.pathname.includes("/services") ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} font-medium hover:text-brand-gold`}
             >
               Services
             </button>
             <button
               onClick={() => handleNavClick("/careers")}
-              className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${
-                location.pathname === "/careers" ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} font-medium hover:text-brand-gold`}
             >
               Careers
             </button>
             <button
               onClick={() => handleNavClick("/global-presence")}
-              className={`text-gray-800 hover:text-brand-gold font-medium transition-colors py-1 ${
-                location.pathname === "/global-presence" ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} font-medium hover:text-brand-gold`}
             >
               Global Presence
             </button>
@@ -134,85 +126,68 @@ export const Header = () => {
 
             <button
               onClick={() => handleNavClick("/contact", "contact-form")}
-              className="px-5 py-2 transition font-medium bg-slate-900 hover:bg-slate-800 text-slate-50 rounded-xl"
+              className={`px-5 py-2 font-medium rounded-xl ${
+                isTransparent
+                  ? "bg-white/20 border border-white text-white"
+                  : "bg-slate-900 text-white hover:bg-slate-800"
+              }`}
             >
               Get A Quote
             </button>
           </nav>
         </div>
 
-        {/* ---------- Mobile Navigation ---------- */}
+        {/* ---------- MOBILE NAV ---------- */}
         <div
           className={`${
-            isMobileMenuOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0"
-          } md:hidden overflow-hidden transition-all duration-300 ease-in-out`}
+            isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          } overflow-hidden transition-all duration-300 md:hidden`}
         >
-          <nav className="flex flex-col gap-4 border-t mt-4 border-gray-100">
+          <nav
+            className={`flex flex-col gap-4 mt-4 rounded-b-xl px-4 py-4 ${
+              isTransparent ? "bg-black/60 text-white" : "bg-white text-gray-800"
+            }`}
+          >
             <button
               onClick={() => handleNavClick("/")}
-              className={`text-gray-800 hover:text-brand-gold font-medium ${
-                location.pathname === "/" ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} text-left`}
             >
               Home
             </button>
             <button
               onClick={() => handleNavClick("/about")}
-              className={`text-gray-800 hover:text-brand-gold font-medium ${
-                location.pathname === "/about" ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} text-left`}
             >
               About Us
             </button>
             <button
               onClick={() => handleNavClick("/services")}
-              className={`text-gray-800 hover:text-brand-gold font-medium ${
-                location.pathname.includes("/services") ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} text-left`}
             >
               Services
             </button>
             <button
               onClick={() => handleNavClick("/careers")}
-              className={`text-gray-800 hover:text-brand-gold font-medium ${
-                location.pathname === "/careers" ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} text-left`}
             >
               Careers
             </button>
             <button
               onClick={() => handleNavClick("/global-presence")}
-              className={`text-gray-800 hover:text-brand-gold font-medium ${
-                location.pathname === "/global-presence" ? "text-brand-gold" : ""
-              }`}
+              className={`${textColor} text-left`}
             >
               Global Presence
             </button>
-
-            <div className="flex items-center gap-4 py-2">
-              <a
-                href="https://www.linkedin.com/company/gglus/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-brand-gold transition-colors"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="https://www.facebook.com/gglusa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-brand-gold transition-colors"
-              >
-                <Facebook size={20} />
-              </a>
-            </div>
 
             <CountrySelector />
 
             <button
               onClick={() => handleNavClick("/contact", "contact-form")}
-              className="px-4 py-2 bg-brand-gold text-brand-navy rounded-md hover:bg-amber-500 text-center font-medium w-full"
+              className={`px-4 py-2 rounded-md w-full font-medium ${
+                isTransparent
+                  ? "bg-white/20 border border-white text-white"
+                  : "bg-brand-gold text-brand-navy"
+              }`}
             >
               Get A Quote
             </button>
