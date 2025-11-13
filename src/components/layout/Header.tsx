@@ -74,7 +74,7 @@ export const Header = () => {
               rel="noopener noreferrer"
             >
               <img
-                src={isTransparent ? "/6958.png" : "/group.png"}
+                src={isTransparent ? "/Singapore.png" : "/group.png"}
                 className="h-11 w-auto object-contain"
                 alt="1 Global Enterprises"
               />
