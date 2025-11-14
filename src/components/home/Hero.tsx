@@ -1,180 +1,112 @@
 import React, { useState, useEffect } from 'react';
-import { Users, UserCircle, SearchCode, Ship, Calendar, Globe } from 'lucide-react';
+import { Users, UserCircle, SearchCode, Ship, Calendar } from 'lucide-react';
+
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isCustomerPortalOpen, setIsCustomerPortalOpen] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
-  const sliderImages = [{
-    src: '/h1.jpg',
-    text: 'Cost effective and top quality LCL & FCL services'
-  }, {
-    src: '/h2.jpg',
-    text: 'Top-notch warehousing services for all your shipments'
-  }, {
-    src: '/h3.jpg',
-    text: 'Get the best LCL & FCL services at unbeatable prices'
-  }, {
-    src: '/h4.png',
-    text: 'Get the best logistics service at very competitive prices'
-  }, {
-    src: '/15.png',
-    text: 'Cost effective and top quality LCL & FCL services'
-  }, {
-    src: '/13.png',
-    text: 'Top-notch warehousing services for all your shipments'
-  }, {
-    src: '/12.png',
-    text: 'Get the best LCL & FCL services at unbeatable prices'
-  }, {
-    src: '/14.png',
-    text: 'Get the best logistics service at very competitive prices'
-  }];
+
+  const sliderImages = [
+    { src: '/h1.jpg', text: 'Cost effective and top quality LCL & FCL services' },
+    { src: '/h2.jpg', text: 'Top-notch warehousing services for all your shipments' },
+    { src: '/h3.jpg', text: 'Get the best LCL & FCL services at unbeatable prices' },
+    { src: '/h4.png', text: 'Get the best logistics service at very competitive prices' },
+    { src: '/15.png', text: 'Cost effective and top quality LCL & FCL services' },
+    { src: '/13.png', text: 'Top-notch warehousing services for all your shipments' },
+    { src: '/12.png', text: 'Get the best LCL & FCL services at unbeatable prices' },
+    { src: '/14.png', text: 'Get the best logistics service at very competitive prices' }
+  ];
+
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 300);
-    return () => clearTimeout(timer);
+    setTimeout(() => setIsVisible(true), 300);
   }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlide(prev => (prev + 1) % sliderImages.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [sliderImages.length]);
-const portalLinks = [
-  {
-    icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'ConsolMate',
-    description: 'Access shipping dashboard',
-    url: '',
-    external: true
-  },
-  {
-    icon: <UserCircle className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Partner Portal',
-    description: 'Manage partnership',
-    url: '',
-    external: true
-  },
-  {
-    icon: <SearchCode className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Tracking',
-    description: 'Track your shipment',
-    url: '',
-    external: true
-  },
-  {
-    icon: <Ship className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Sailing Schedule',
-    description: 'View schedules',
-    url: '',
-    external: true
-  },
-  {
-    icon: <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />,
-    title: 'Online Quote',
-    description: 'Request a quote',
-    url: '/contact',
-    external: false
-  }
-];
 
-  return <section className="relative min-h-screen overflow-hidden pt-8 md:pt-16">
-      {/* Background Slider */}
-      <div className="absolute inset-0 overflow-hidden">
-        {sliderImages.map((slide, index) => <div key={index} className={`absolute inset-0 transition-opacity duration-1200 ease-in-out ${activeSlide === index ? 'opacity-100' : 'opacity-0'}`} style={{
-        zIndex: activeSlide === index ? 1 : 0
-      }}>
-            <img src={slide.src} alt={slide.text} className="w-full h-full object-cover object-center" loading={index === 0 ? 'eager' : 'lazy'} />
-          </div>)}
+  const portalLinks = [
+    { icon: <Users className="w-5 h-5" />, title: 'ConsolMate', url: '', external: true },
+    { icon: <UserCircle className="w-5 h-5" />, title: 'Partner Portal', url: '', external: true },
+    { icon: <SearchCode className="w-5 h-5" />, title: 'Tracking', url: '', external: true },
+    { icon: <Ship className="w-5 h-5" />, title: 'Sailing Schedule', url: '', external: true },
+    { icon: <Calendar className="w-5 h-5" />, title: 'Online Quote', url: '/contact', external: false }
+  ];
+
+  return (
+    <section className="relative min-h-screen overflow-hidden pt-10 md:pt-16">
+
+      {/* BG Slider */}
+      <div className="absolute inset-0">
+        {sliderImages.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              activeSlide === index ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={slide.src}
+              alt={slide.text}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        ))}
       </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 z-[1]" />
 
-      {/* Main Content - Vertically Shifted Up */}
-      <div className="absolute inset-0 flex items-center justify-start z-[2]">
-        <div className="container mx-auto h-full flex items-center px-4 md:px-6 lg:px-8">
-          <div className={`max-w-2xl space-y-4 md:space-y-5 text-left transition-all duration-800 transform ${isVisible ? 'opacity-100 -translate-y-[3%]' : 'opacity-0 translate-y-10'}`}>
-            
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight lg:text-4xl">
-              {sliderImages[activeSlide].text}
-            </h1>
-          </div>
+      {/* Hero text */}
+      <div className="absolute inset-0 flex items-center z-[2]">
+        <div className="container mx-auto px-6">
+          <h1
+            className={`text-3xl md:text-5xl font-bold text-white max-w-2xl leading-tight transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+          >
+            {sliderImages[activeSlide].text}
+          </h1>
         </div>
       </div>
 
-      {/* Portal Buttons */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 z-[10] px-2 sm:px-4">
-        <div className={`max-w-7xl mx-auto transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="bg-white/0 p-3 sm:p-4 my-[31px]">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3">
-              {portalLinks.map((link, index) => <div key={index} className="flex flex-col items-center">
-                  {link.external ? <a href={link.url} target="_blank" rel="noopener noreferrer" className="w-full">
-                      <button className="w-full h-12 sm:h-14 md:h-16 flex flex-col gap-1 items-center justify-center text-xs sm:text-sm transition-all duration-300 rounded-lg shadow-sm hover:shadow-md hover:scale-105 text-slate-50 bg-brand-navy">
-                        {link.icon}
-                        <span className="font-medium leading-none">{link.title}</span>
-                      </button>
-                    </a> : link.onClick ? <button onClick={link.onClick} className="w-full h-12 sm:h-14 md:h-16 flex flex-col gap-1 items-center justify-center text-xs sm:text-sm transition-all duration-300 rounded-lg shadow-sm hover:shadow-md hover:scale-105 bg-brand-navy text-slate-50">
+      {/* BOTTOM GRADIENT */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/80 to-transparent z-[2]" />
+
+      {/* BOTTOM BUTTONS */}
+      <div className="absolute bottom-6 left-0 right-0 z-[3] px-4">
+        <div
+          className={`max-w-6xl mx-auto transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            {portalLinks.map((link, i) => (
+              <div key={i} className="flex justify-center">
+                {link.external ? (
+                  <a href={link.url} target="_blank" className="w-full">
+                    <button className="w-full h-16 bg-brand-navy text-white rounded-lg flex flex-col items-center justify-center gap-1 hover:scale-105 transition">
                       {link.icon}
-                      <span className="font-medium leading-none">{link.title}</span>
-                    </button> : <a href={link.url} className="w-full">
-                      <button className="w-full h-12 sm:h-14 md:h-16 flex flex-col gap-1 items-center justify-center text-xs sm:text-sm transition-all duration-300 rounded-lg shadow-sm hover:shadow-md hover:scale-105 text-brand-lightGray bg-brand-navy">
-                        {link.icon}
-                        <span className="font-medium leading-none">{link.title}</span>
-                      </button>
-                    </a>}
-                </div>)}
-            </div>
+                      <span className="text-sm font-medium">{link.title}</span>
+                    </button>
+                  </a>
+                ) : (
+                  <a href={link.url} className="w-full">
+                    <button className="w-full h-16 bg-brand-navy text-white rounded-lg flex flex-col items-center justify-center gap-1 hover:scale-105 transition">
+                      {link.icon}
+                      <span className="text-sm font-medium">{link.title}</span>
+                    </button>
+                  </a>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Customer Portal Modal */}
-      {isCustomerPortalOpen && <div className="fixed inset-0 bg-black/50 z-[50] flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold text-blue-900">Customer Portal</h2>
-                <button onClick={() => setIsCustomerPortalOpen(false)} className="text-gray-500 hover:text-gray-700 text-2xl">
-                  ×
-                </button>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="font-medium text-gray-800">Tutorial Videos</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[{
-                src: '/GGL_demo1.mp4',
-                label: 'Getting Started'
-              }, {
-                src: '/GGL_promo.mp4',
-                label: 'Advanced Features'
-              }].map((video, i) => <div key={i} className="border rounded-lg overflow-hidden">
-                      <div className="aspect-video">
-                        <video controls className="w-full h-full object-cover">
-                          <source src={video.src} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
-                      <div className="p-2 bg-gray-50 text-sm font-medium">{video.label}</div>
-                    </div>)}
-                </div>
-              </div>
-
-              {/* Button Section */}
-              <div className="mt-6 flex justify-end gap-4">
-                <button onClick={() => setIsCustomerPortalOpen(false)} className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400">
-                  Cancel
-                </button>
-                <a href="https://cp.onlinetracking.co/#/login/3" target="_blank" rel="noopener noreferrer">
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                    Login
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>}
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
