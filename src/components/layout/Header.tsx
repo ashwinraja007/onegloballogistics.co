@@ -55,7 +55,7 @@ export const Header = () => {
             <img
               src="/ogl-logo.png"
               onClick={handleLogoClick}
-              className="h-12 md:h-10 lg:h-14 w-auto cursor-pointer object-contain"
+              className="h-11 md:h-10 lg:h-14 w-auto cursor-pointer object-contain"
               alt="One Global Logistics"
             />
 
@@ -88,7 +88,7 @@ export const Header = () => {
                   ${textColor} font-medium hover:text-brand-gold whitespace-nowrap
                   text-[11px]     /* small desktop */
                   md:text-[12px]  /* normal laptop */
-                  lg:text-[13px]  /* large laptop / desktop */
+                  lg:text-[14px]  /* large laptop / desktop */
                 `}
               >
                 {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
