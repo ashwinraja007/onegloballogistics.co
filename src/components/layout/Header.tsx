@@ -87,16 +87,7 @@ export const Header = () => {
 
             <CountrySelector />
 
-            <button
-              onClick={() => handleNavClick("/contact", "contact-form")}
-              className={`px-5 py-2 font-medium rounded-xl ${
-                isTransparent
-                  ? "bg-white/20 border border-white text-white"
-                  : "bg-slate-900 text-white hover:bg-slate-800"
-              }`}
-            >
-              Get A Quote
-            </button>
+          
           </nav>
         </div>
 
@@ -125,7 +116,16 @@ export const Header = () => {
 
             <CountrySelector />
 
-          
+            <button
+              onClick={() => handleNavClick("/contact", "contact-form")}
+              className={`px-4 py-2 rounded-md w-full font-medium ${
+                isTransparent
+                  ? "bg-white/20 border border-white text-white"
+                  : "bg-brand-gold text-brand-navy"
+              }`}
+            >
+              Get A Quote
+            </button>
           </nav>
         </div>
       </div>
