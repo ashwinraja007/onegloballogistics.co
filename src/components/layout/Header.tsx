@@ -20,11 +20,13 @@ export const Header = () => {
 
   const handleNavClick = (path: string, scrollToId?: string) => {
     setIsMobileMenuOpen(false);
+
     if (location.pathname === path && scrollToId) {
       const el = document.getElementById(scrollToId);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (el) el.scrollIntoView({ behavior: "smooth" });
       return;
     }
+
     navigate(path);
   };
 
@@ -53,21 +55,21 @@ export const Header = () => {
             <img
               src="/ogl-logo.png"
               onClick={handleLogoClick}
-              className="h-10 md:h-11 lg:h-12 xl:h-14 cursor-pointer object-contain"
+              className="h-10 md:h-11 lg:h-12 w-auto cursor-pointer object-contain"
               alt="One Global Logistics"
             />
 
-            {/* Bigger 1Global Logo */}
+            {/* Bigger 1 Global logo */}
             <a href="https://www.1ge.sg/" target="_blank" rel="noopener noreferrer">
               <img
                 src={isTransparent ? "/Singapore.png" : "/group.png"}
-                className="h-11 md:h-12 lg:h-[52px] xl:h-[60px] object-contain"
+                className="h-10 md:h-11 lg:h-12 xl:h-[50px] object-contain"
                 alt="1 Global Enterprises"
               />
             </a>
           </div>
 
-          {/* ---------- MOBILE MENU ICON ---------- */}
+          {/* MOBILE MENU ICON */}
           <button
             className={`md:hidden p-1 ${textColor}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -76,7 +78,7 @@ export const Header = () => {
           </button>
 
           {/* ---------- DESKTOP NAV ---------- */}
-          <nav className="hidden md:flex gap-4 lg:gap-6 xl:gap-8 items-center">
+          <nav className="hidden md:flex gap-4 lg:gap-5 xl:gap-6 items-center">
 
             {["/", "/about", "/services", "/careers", "/global-presence"].map((path, idx) => (
               <button
@@ -84,11 +86,9 @@ export const Header = () => {
                 onClick={() => handleNavClick(path)}
                 className={`
                   ${textColor} font-medium hover:text-brand-gold whitespace-nowrap
-                  text-[12px]        /* 1024px small desktop */
-                  md:text-[13px]     /* 1280px laptop */
-                  lg:text-[14px]     /* 1366px laptop */
-                  xl:text-[16px]     /* 1440px desktop */
-                  2xl:text-[18px]    /* BIG on large screens */
+                  text-[12px]     /* small desktop */
+                  md:text-[13px]  /* normal laptop */
+                  lg:text-[14px]  /* large laptop / desktop */
                 `}
               >
                 {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
@@ -100,13 +100,12 @@ export const Header = () => {
               <CountrySelector />
             </div>
 
-            {/* GET A QUOTE - Visible only on large screens */}
+            {/* SHOW ONLY ON XL  (hide at 1024 & 1280) */}
             <button
               onClick={() => handleNavClick("/contact", "contact-form")}
               className={`
                 hidden xl:inline-flex items-center justify-center
-                px-5 py-2 font-medium rounded-xl
-                text-[14px] xl:text-[15px] 2xl:text-[17px]
+                px-5 py-2 font-medium rounded-xl text-[14px]
                 ${isTransparent ? "bg-white/20 border border-white text-white" : "bg-slate-900 text-white hover:bg-slate-800"}
               `}
             >
@@ -131,7 +130,7 @@ export const Header = () => {
                 <button
                   key={idx}
                   onClick={() => handleNavClick(path)}
-                  className="text-left text-lg"
+                  className="text-left text-base"
                 >
                   {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
                 </button>
@@ -139,6 +138,8 @@ export const Header = () => {
             )}
 
             <CountrySelector />
+
+            {/* Get A Quote hidden on mobile */}
           </nav>
         </div>
       </div>
