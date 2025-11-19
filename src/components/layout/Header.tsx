@@ -1,33 +1,30 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Linkedin, Facebook } from "lucide-react";
 import { useState, useEffect } from "react";
 import CountrySelector from "../common/CountrySelector";
 
 export const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  const isHomePage = location.pathname === "/" || location.pathname === "/sg";
+  const isHomePage = location.pathname === "/" || location.pathname === "/sg"; // your site uses country paths
   const isTransparent = isHomePage && !scrolled;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (path: string, scrollToId?: string) => {
     setIsMobileMenuOpen(false);
-
     if (location.pathname === path && scrollToId) {
       const el = document.getElementById(scrollToId);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
-
     navigate(path);
   };
 
@@ -36,122 +33,99 @@ export const Header = () => {
     window.scrollTo(0, 0);
   };
 
+  // TEXT COLOR DEPENDS ON MODE
   const textColor = isTransparent ? "text-white" : "text-gray-800";
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 py-2"
       style={{
         backgroundColor: isTransparent ? "transparent" : "#ffffff",
-        boxShadow: isTransparent ? "none" : "0 4px 12px rgba(15,23,42,0.12)",
+        boxShadow: isTransparent ? "none" : "0 4px 12px rgba(15,23,42,0.12)"
       }}
     >
-      <div className="w-full max-w-[1200px] mx-auto px-3 lg:px-5 xl:px-6 py-2">
-        <div className="flex justify-between items-center gap-3 w-full">
-          {/* LEFT — LOGO + SUB LOGO (sub logo only on xl+) */}
-          <div className="flex items-center gap-3 shrink-0">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+
+          {/* ---------- LOGOS ---------- */}
+          <div className="flex items-center gap-3">
             <img
               src="/ogl-logo.png"
               onClick={handleLogoClick}
-              className="h-9 md:h-10 lg:h-11 xl:h-12 w-auto cursor-pointer object-contain"
+              className="h-16 w-auto cursor-pointer object-contain"
               alt="One Global Logistics"
             />
 
-            <a
-              href="https://www.1ge.sg/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden xl:block"
-            >
+            <a href="https://www.1ge.sg/" target="_blank" rel="noopener noreferrer">
               <img
                 src={isTransparent ? "/Singapore.png" : "/group.png"}
-                className="h-7 xl:h-8 w-auto object-contain"
+                className="h-11 w-auto object-contain"
                 alt="1 Global Enterprises"
               />
             </a>
           </div>
 
-          {/* MOBILE MENU BUTTON (< md) */}
+          {/* ---------- MOBILE MENU ICON ---------- */}
           <button
             className={`md:hidden p-1 ${textColor}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
 
-          {/* DESKTOP/TABLET NAV (≥ md) */}
-          <nav className="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6 flex-nowrap">
-            {["/", "/about", "/services", "/careers", "/global-presence"].map(
-              (path, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleNavClick(path)}
-                  className={`${textColor} text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] font-medium tracking-wide hover:text-brand-gold whitespace-nowrap`}
-                >
-                  {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
-                </button>
-              )
-            )}
+          {/* ---------- DESKTOP NAV ---------- */}
+          <nav className="hidden md:flex gap-6 items-center">
+            {["/", "/about", "/services", "/careers", "/global-presence"].map((path, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleNavClick(path)}
+                className={`${textColor} font-medium hover:text-brand-gold`}
+              >
+                {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
+              </button>
+            ))}
 
-            {/* Country selector scaled down slightly on small desktops */}
-            <div className="scale-[0.85] lg:scale-[0.9] xl:scale-100 flex-shrink-0">
-              <CountrySelector />
-            </div>
+            <CountrySelector />
 
-            {/* Compact CTA */}
             <button
               onClick={() => handleNavClick("/contact", "contact-form")}
-              className={`px-3 py-[5px] text-[11px] md:text-[12px] lg:text-[13px] rounded-xl font-medium whitespace-nowrap flex-shrink-0
-                ${
-                  isTransparent
-                    ? "bg-white/25 border border-white text-white"
-                    : "bg-slate-900 text-white hover:bg-slate-800"
-                }`}
+              className={`px-5 py-2 font-medium rounded-xl ${
+                isTransparent
+                  ? "bg-white/20 border border-white text-white"
+                  : "bg-slate-900 text-white hover:bg-slate-800"
+              }`}
             >
               Get A Quote
             </button>
           </nav>
         </div>
 
-        {/* MOBILE NAV (< md) */}
+        {/* ---------- MOBILE NAV ---------- */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
+          className={`${
             isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-          }`}
+          } overflow-hidden transition-all duration-300 md:hidden`}
         >
           <nav
-            className={`flex flex-col gap-4 mt-3 rounded-b-xl px-4 py-4 ${
+            className={`flex flex-col gap-4 mt-4 rounded-b-xl px-4 py-4 ${
               isTransparent
-                ? "bg-black/70 text-white backdrop-blur-md"
-                : "bg-white text-gray-800 shadow-lg"
+                ? "bg-black/60 text-white"
+                : "bg-white text-gray-800"
             }`}
           >
-            {["/", "/about", "/services", "/careers", "/global-presence"].map(
-              (path, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleNavClick(path)}
-                  className="text-left py-1 text-base"
-                >
-                  {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
-                </button>
-              )
-            )}
+            {["/", "/about", "/services", "/careers", "/global-presence"].map((path, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleNavClick(path)}
+                className={`${isTransparent ? "text-white" : "text-gray-800"} text-left`}
+              >
+                {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
+              </button>
+            ))}
 
-            <div className="mt-2 mb-2">
-              <CountrySelector />
-            </div>
+            <CountrySelector />
 
-            <button
-              onClick={() => handleNavClick("/contact", "contact-form")}
-              className={`px-4 py-2 rounded-md w-full font-medium mt-2 ${
-                isTransparent
-                  ? "bg-white/20 border border-white text-white"
-                  : "bg-brand-gold text-brand-navy"
-              }`}
-            >
-              Get A Quote
-            </button>
+          
           </nav>
         </div>
       </div>
