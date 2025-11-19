@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import CountrySelector from "../common/CountrySelector";
@@ -46,14 +46,14 @@ export const Header = () => {
         boxShadow: isTransparent ? "none" : "0 4px 12px rgba(15,23,42,0.12)",
       }}
     >
-      <div className="w-full max-w-[1650px] mx-auto px-4 lg:px-8 xl:px-10 2xl:px-14 py-2">
-        <div className="flex justify-between items-center w-full">
-          {/* LEFT — LOGO + SUB LOGO */}
+      <div className="w-full max-w-[1200px] mx-auto px-3 lg:px-5 xl:px-6 py-2">
+        <div className="flex justify-between items-center gap-3 w-full">
+          {/* LEFT — LOGO + SUB LOGO (sub logo only on xl+) */}
           <div className="flex items-center gap-3 shrink-0">
             <img
               src="/ogl-logo.png"
               onClick={handleLogoClick}
-              className="h-10 lg:h-12 xl:h-[52px] w-auto cursor-pointer object-contain"
+              className="h-9 md:h-10 lg:h-11 xl:h-12 w-auto cursor-pointer object-contain"
               alt="One Global Logistics"
             />
 
@@ -61,62 +61,66 @@ export const Header = () => {
               href="https://www.1ge.sg/"
               target="_blank"
               rel="noopener noreferrer"
+              className="hidden xl:block"
             >
               <img
                 src={isTransparent ? "/Singapore.png" : "/group.png"}
-                className="h-7 lg:h-8 xl:h-9 w-auto object-contain"
+                className="h-7 xl:h-8 w-auto object-contain"
                 alt="1 Global Enterprises"
               />
             </a>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE MENU BUTTON (< md) */}
           <button
-            className={`md:hidden p-2 ${textColor}`}
+            className={`md:hidden p-1 ${textColor}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          {/* DESKTOP NAV */}
-          <nav className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 2xl:gap-10">
+          {/* DESKTOP/TABLET NAV (≥ md) */}
+          <nav className="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6 flex-nowrap">
             {["/", "/about", "/services", "/careers", "/global-presence"].map(
               (path, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleNavClick(path)}
-                  className={`${textColor} text-[13px] lg:text-[14px] xl:text-[15px] 2xl:text-[15px] font-medium tracking-wide hover:text-brand-gold whitespace-nowrap`}
+                  className={`${textColor} text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] font-medium tracking-wide hover:text-brand-gold whitespace-nowrap`}
                 >
                   {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
                 </button>
               )
             )}
 
-            <div className="scale-[.90] lg:scale-[.95] xl:scale-100">
+            {/* Country selector scaled down slightly on small desktops */}
+            <div className="scale-[0.85] lg:scale-[0.9] xl:scale-100 flex-shrink-0">
               <CountrySelector />
             </div>
 
+            {/* Compact CTA */}
             <button
               onClick={() => handleNavClick("/contact", "contact-form")}
-              className={`px-3 lg:px-4 py-[6px] lg:py-[7px] text-[13px] lg:text-[14px] rounded-xl font-medium whitespace-nowrap ${
-                isTransparent
-                  ? "bg-white/25 border border-white text-white"
-                  : "bg-slate-900 text-white hover:bg-slate-800"
-              }`}
+              className={`px-3 py-[5px] text-[11px] md:text-[12px] lg:text-[13px] rounded-xl font-medium whitespace-nowrap flex-shrink-0
+                ${
+                  isTransparent
+                    ? "bg-white/25 border border-white text-white"
+                    : "bg-slate-900 text-white hover:bg-slate-800"
+                }`}
             >
               Get A Quote
             </button>
           </nav>
         </div>
 
-        {/* MOBILE NAV */}
+        {/* MOBILE NAV (< md) */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ${
             isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <nav
-            className={`flex flex-col gap-4 mt-4 rounded-b-xl px-4 py-4 ${
+            className={`flex flex-col gap-4 mt-3 rounded-b-xl px-4 py-4 ${
               isTransparent
                 ? "bg-black/70 text-white backdrop-blur-md"
                 : "bg-white text-gray-800 shadow-lg"
