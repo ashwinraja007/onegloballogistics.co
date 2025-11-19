@@ -9,7 +9,7 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
-  const isHomePage = location.pathname === "/" || location.pathname === "/sg"; // your site uses country paths
+  const isHomePage = location.pathname === "/" || location.pathname === "/sg";
   const isTransparent = isHomePage && !scrolled;
 
   useEffect(() => {
@@ -33,7 +33,6 @@ export const Header = () => {
     window.scrollTo(0, 0);
   };
 
-  // TEXT COLOR DEPENDS ON MODE
   const textColor = isTransparent ? "text-white" : "text-gray-800";
 
   return (
@@ -41,30 +40,28 @@ export const Header = () => {
       className="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 py-2"
       style={{
         backgroundColor: isTransparent ? "transparent" : "#ffffff",
-        boxShadow: isTransparent ? "none" : "0 4px 12px rgba(15,23,42,0.12)",
+        boxShadow: isTransparent ? "none" : "0 4px 12px rgba(15,23,42,0.12)"
       }}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
+
           {/* ---------- LOGOS ---------- */}
           <div className="flex items-center gap-3">
-            {/* smaller main logo */}
+
+            {/* Smaller main logo */}
             <img
               src="/ogl-logo.png"
               onClick={handleLogoClick}
-              className="h-10 md:h-11 lg:h-12 w-auto cursor-pointer object-contain"
+              className="h-10 md:h-11 lg:h-12 xl:h-14 cursor-pointer object-contain"
               alt="One Global Logistics"
             />
 
-            {/* bigger 1 Global Enterprises logo */}
-            <a
-              href="https://www.1ge.sg/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            {/* Bigger 1Global Logo */}
+            <a href="https://www.1ge.sg/" target="_blank" rel="noopener noreferrer">
               <img
                 src={isTransparent ? "/Singapore.png" : "/group.png"}
-                className="h-11 md:h-12 lg:h-13 w-auto object-contain"
+                className="h-11 md:h-12 lg:h-[52px] xl:h-[60px] object-contain"
                 alt="1 Global Enterprises"
               />
             </a>
@@ -79,31 +76,39 @@ export const Header = () => {
           </button>
 
           {/* ---------- DESKTOP NAV ---------- */}
-          <nav className="hidden md:flex gap-4 lg:gap-5 xl:gap-6 items-center">
-            {["/", "/about", "/services", "/careers", "/global-presence"].map(
-              (path, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleNavClick(path)}
-                  className={`${textColor} font-medium hover:text-brand-gold text-[12px] md:text-[13px] lg:text-[14px] whitespace-nowrap`}
-                >
-                  {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
-                </button>
-              )
-            )}
+          <nav className="hidden md:flex gap-4 lg:gap-6 xl:gap-8 items-center">
 
-            <div className="scale-[0.9] xl:scale-100">
+            {["/", "/about", "/services", "/careers", "/global-presence"].map((path, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleNavClick(path)}
+                className={`
+                  ${textColor} font-medium hover:text-brand-gold whitespace-nowrap
+                  text-[12px]        /* 1024px small desktop */
+                  md:text-[13px]     /* 1280px laptop */
+                  lg:text-[14px]     /* 1366px laptop */
+                  xl:text-[16px]     /* 1440px desktop */
+                  2xl:text-[18px]    /* BIG on large screens */
+                `}
+              >
+                {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
+              </button>
+            ))}
+
+            {/* Country Selector */}
+            <div className="scale-[0.9] lg:scale-[1]">
               <CountrySelector />
             </div>
 
-            {/* Get A Quote: ONLY visible on xl and above */}
+            {/* GET A QUOTE - Visible only on large screens */}
             <button
               onClick={() => handleNavClick("/contact", "contact-form")}
-              className={`hidden xl:inline-flex items-center justify-center px-5 py-2 font-medium rounded-xl ${
-                isTransparent
-                  ? "bg-white/20 border border-white text-white"
-                  : "bg-slate-900 text-white hover:bg-slate-800"
-              }`}
+              className={`
+                hidden xl:inline-flex items-center justify-center
+                px-5 py-2 font-medium rounded-xl
+                text-[14px] xl:text-[15px] 2xl:text-[17px]
+                ${isTransparent ? "bg-white/20 border border-white text-white" : "bg-slate-900 text-white hover:bg-slate-800"}
+              `}
             >
               Get A Quote
             </button>
@@ -126,9 +131,7 @@ export const Header = () => {
                 <button
                   key={idx}
                   onClick={() => handleNavClick(path)}
-                  className={`${
-                    isTransparent ? "text-white" : "text-gray-800"
-                  } text-left`}
+                  className="text-left text-lg"
                 >
                   {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
                 </button>
@@ -136,8 +139,6 @@ export const Header = () => {
             )}
 
             <CountrySelector />
-
-            {/* Get A Quote REMOVED on mobile */}
           </nav>
         </div>
       </div>
