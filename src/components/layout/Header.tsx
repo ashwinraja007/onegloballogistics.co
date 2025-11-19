@@ -70,7 +70,7 @@ export const Header = () => {
                 className="
                   h-8          /* SMALL SCREEN ONLY SMALLER */
                   md:h-10
-                  lg:h-8
+                  lg:h-9
                   xl:h-[40px]
                   object-contain
                 "
