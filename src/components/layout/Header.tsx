@@ -87,8 +87,8 @@ export const Header = () => {
                 className={`
                   ${textColor} font-medium hover:text-brand-gold whitespace-nowrap
                   text-[12px]     /* small desktop */
-                  md:text-[13px]  /* normal laptop */
-                  lg:text-[14px]  /* large laptop / desktop */
+                  md:text-[12px]  /* normal laptop */
+                  lg:text-[16px]  /* large laptop / desktop */
                 `}
               >
                 {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
