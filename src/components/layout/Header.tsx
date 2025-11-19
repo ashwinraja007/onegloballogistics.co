@@ -86,9 +86,9 @@ export const Header = () => {
                 onClick={() => handleNavClick(path)}
                 className={`
                   ${textColor} font-medium hover:text-brand-gold whitespace-nowrap
-                  text-[12px]     /* small desktop */
+                  text-[11px]     /* small desktop */
                   md:text-[12px]  /* normal laptop */
-                  lg:text-[16px]  /* large laptop / desktop */
+                  lg:text-[13px]  /* large laptop / desktop */
                 `}
               >
                 {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
