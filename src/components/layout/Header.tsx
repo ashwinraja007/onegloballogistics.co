@@ -59,14 +59,25 @@ export const Header = () => {
               alt="One Global Logistics"
             />
 
-            {/* Bigger 1 Global logo */}
-            <a href="https://www.1ge.sg/" target="_blank" rel="noopener noreferrer">
+            {/* Bigger 1 Global logo (only small screen reduced) */}
+            <a
+              href="https://www.1ge.sg/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src={isTransparent ? "/Singapore.png" : "/group.png"}
-                className="h-10 md:h-10 lg:h-10 xl:h-[40px] object-contain"
+                className="
+                  h-8          /* SMALL SCREEN ONLY SMALLER */
+                  md:h-10
+                  lg:h-10
+                  xl:h-[40px]
+                  object-contain
+                "
                 alt="1 Global Enterprises"
               />
             </a>
+
           </div>
 
           {/* MOBILE MENU ICON */}
@@ -86,27 +97,29 @@ export const Header = () => {
                 onClick={() => handleNavClick(path)}
                 className={`
                   ${textColor} font-medium hover:text-brand-gold whitespace-nowrap
-                  text-[11px]     /* small desktop */
-                  md:text-[12px]  /* normal laptop */
-                  lg:text-[14px]  /* large laptop / desktop */
+                  text-[11px]
+                  md:text-[12px]
+                  lg:text-[14px]
                 `}
               >
                 {["Home", "About Us", "Services", "Careers", "Global Presence"][idx]}
               </button>
             ))}
 
-            {/* Country Selector */}
             <div className="scale-[0.9] lg:scale-[1]">
               <CountrySelector />
             </div>
 
-            {/* SHOW ONLY ON XL  (hide at 1024 & 1280) */}
             <button
               onClick={() => handleNavClick("/contact", "contact-form")}
               className={`
                 hidden xl:inline-flex items-center justify-center
                 px-5 py-2 font-medium rounded-xl text-[14px]
-                ${isTransparent ? "bg-white/20 border border-white text-white" : "bg-slate-900 text-white hover:bg-slate-800"}
+                ${
+                  isTransparent
+                    ? "bg-white/20 border border-white text-white"
+                    : "bg-slate-900 text-white hover:bg-slate-800"
+                }
               `}
             >
               Get A Quote
@@ -119,6 +132,7 @@ export const Header = () => {
           className={`${
             isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden transition-all duration-300 md:hidden`}
+
         >
           <nav
             className={`flex flex-col gap-4 mt-4 rounded-b-xl px-4 py-4 ${
@@ -138,8 +152,6 @@ export const Header = () => {
             )}
 
             <CountrySelector />
-
-            {/* Get A Quote hidden on mobile */}
           </nav>
         </div>
       </div>
