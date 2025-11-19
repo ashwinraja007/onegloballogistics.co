@@ -55,7 +55,7 @@ export const Header = () => {
             <img
               src="/ogl-logo.png"
               onClick={handleLogoClick}
-              className="h-10 md:h-11 lg:h-12 w-auto cursor-pointer object-contain"
+              className="h-10 md:h-11 lg:h-13 w-auto cursor-pointer object-contain"
               alt="One Global Logistics"
             />
 
@@ -63,7 +63,7 @@ export const Header = () => {
             <a href="https://www.1ge.sg/" target="_blank" rel="noopener noreferrer">
               <img
                 src={isTransparent ? "/Singapore.png" : "/group.png"}
-                className="h-10 md:h-11 lg:h-12 xl:h-[50px] object-contain"
+                className="h-10 md:h-10 lg:h-12 xl:h-[40px] object-contain"
                 alt="1 Global Enterprises"
               />
             </a>
