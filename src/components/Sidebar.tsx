@@ -235,18 +235,6 @@ const countries = [{
     email: "info@gglusa.us"
   }]
 }, {
-  code: "gb",
-  name: "United Kingdom (UK)",
-  lat: 51.5074,
-  lng: -0.1278,
-  cities: [{
-    name: "London",
-    lat: 51.5074,
-    lng: -0.1278,
-    address: "167-169 Great Portland Street 5th Floor, London W1W 5PF, United Kingdom",
-    contacts: ["+44 (0) 203 393 9508"]
-  }]
-}, {
   code: "au",
   name: "Australia",
   lat: -37.7064,
