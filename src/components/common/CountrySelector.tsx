@@ -32,7 +32,6 @@ const countries: CountryData[] = [
   { country: "QATAR",         company: "ONE GLOBAL",website: "https://oneglobalqatar.com/",         priority: 12, flag: "/qa.svg" },
   { country: "SAUDI ARABIA",  company: "AFNL",     website: "https://arabianfuturenet.com/",       priority: 13, flag: "/sa.svg" },
   { country: "USA",           company: "GGL",      website: "https://gglusa.us/",                  priority: 15, flag: "/us.svg" },
-  { country: "UK",            company: "Moltech",  website: "https://moltech.uk/",                 priority: 16, flag: "/gb.svg" },
 ];
 
 const findAustraliaCountry = () =>
