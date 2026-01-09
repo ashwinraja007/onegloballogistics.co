@@ -249,12 +249,12 @@ const countries = [{
 },{
   code: "gb",
   name: "United Kingdom (UK)",
-  lat: 55.3781,
-  lng: -3.4360,
+  lat: 51.52168, 
+  lng: -0.14367,
   cities: [{
     name: "London",
-    lat: 51.5074,
-    lng: -0.1278,
+    lat: 51.52168,
+    lng: -0.14367,
     address: "167-169 Great Portland Street 5th Floor, London W1W 5PF, United Kingdom",
     contacts: ["+44 (0) 203 393 9508"]
   }]
