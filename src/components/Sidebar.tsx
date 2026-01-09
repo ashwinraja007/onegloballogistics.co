@@ -14,50 +14,38 @@ interface ContactSidebarProps {
 const countries = [{
   code: "in",
   name: "India",
-  lat: 9.9323,
-  lng: 76.2996,
+  lat: 22.3511,
+  lng: 78.6677,
   cities: [{
-    name: "Kerala",
-    lat: 9.9323,
-    lng: 76.2996,
-    address: "CC 59/801A Elizabeth Memorial Building, Thevara Ferry Jn, Cochin 682013 , Kerala.",
-    contacts: ["+91 484 4019192 / 93"],
-    email: "info@oecl.sg"
-  },{
     name: "Mumbai",
-    lat: 19.01123,
-    lng: 73.03715,
-    address: "803 / 804, Shelton Cubix, Plot No. 87, Sector-15,CBD Belapur, Navi Mumbai, Maharastra - 400614.",
-    contacts: ["022-35131688 / 35113475 / 35082586"],
-    email: "info@oecl.sg"
+    lat: 17.3839,
+    lng: 78.4539,
+    address: "407, mayuresh planet, plot no - 42 & 43, sector-15, cbd belapur, navi mumbai, maharashtra, 400614",
+    contacts: ["Export customer service: +91 2245174102, +91 2245174109, +91 2245174118", "Export docs team: +91 2245174103, +91 2245174105", "Import docs team: +91 2245174104, +91 2245174106", "Import customer service: +91 2245174113, +91 2245174110, +91 2245174107, +91 2245174112"]
   }, {
-    name: "Mumbai-Andheri",
-    lat: 19.11303, 
-    lng: 72.86848,
-    address: "503, Midas, Sahar Plaza Complex,Sir M.V Road,Andheri East, Mumbai 400059",
-    contacts: ["+91 8879756838"],
-    email: "info@oecl.sg"
-  },{
     name: "Delhi",
-    lat: 28.62748,
-    lng: 77.2221,
-    address: "903, Surya Kiran Building K.G Marg,Connaught Place New Delhi - 110001",
-    contacts: ["+91 11 493224477 / 48 /49"],
-    email: "info@oecl.sg"
+    lat: 25.6083,
+    lng: 85.1437,
+    address: "JA 511, DLF Tower A, Jasola District Centre, New Delhi, 110025",
+    contacts: ["+91 9999022030"]
+  }, {
+    name: "Chennai",
+    lat: 13.0827,
+    lng: 80.2707,
+    address: "Old No G1, New G3, KAIZEN 2nd & 3rd Floor Plot No, 565Q, G Block, Annanagar East, Chennai, Tamil Nadu 600102",
+    contacts: ["+91 9123523496"]
   }, {
     name: "Bangalore",
-    lat: 13.01855,
-    lng: 77.64191,
-    address: "3C-964 IIIrd Cross Street,HRBR LAYOUT 1st Block,Kalayan Nagar Bannaswadi,Bengaluru - 560043.",
-    contacts: ["+91 9841676259"],
-    email: "info@oecl.sg"
+    lat: 12.9716,
+    lng: 77.5946,
+    address: "No 2M-216, First Floor, 2nd Main, East Of NGEF Layout, Kasturinagar, Bangalore-560043",
+    contacts: ["+91 9986949743"]
   }, {
     name: "Kolkata",
-    lat: 22.5769, 
-    lng: 88.4341,
-    address: "Merlin Matrix, 3rd floor, Room No. 303 10,D. N. BLOCK, SECTOR - V SALT LAKE CITY, Kolkata – 700091",
-    contacts: ["+91 33 46025458 / 59 / 60/ 61"],
-    email: "info@oecl.sg"
+    lat: 22.5726,
+    lng: 88.3639,
+    address: "Room No - 29, 4th Floor, 6, Jawaharlal Nehru Rd, Siddha Esplanade, Adjacent to Metro Central (Previously Metro Cinema), Kolkata, West Bengal 700013",
+    contacts: ["+91 6290921534"]
   }]
 }, {
   code: "my",
@@ -90,6 +78,19 @@ const countries = [{
     lng: 51.520008,
     address: "Office no: 48, 2nd Floor, Al matar Centre, Old Airport Road Doha",
     contacts: ["0974 33622555"]
+  }]
+},{
+  code: "bd",
+  name: "Bangladesh",
+  lat: 23.8103,
+  lng: 90.4125,
+  cities: [{
+    name: "Dhaka",
+    lat: 23.8103,
+    lng: 90.4125,
+    address: "ID #9-N (New), 9-M(Old-N), 9th floor, Tower 1, Police Plaza Concord No.2, Road # 144, Gulshan Model Town, Dhaka 1215, Bangladesh",
+    contacts: ["+880 1716 620989"],
+    email: "info@globalconsol.com"
   }]
 }, {
   code: "sa",
@@ -219,7 +220,31 @@ const countries = [{
     address: "939 W. North Avenue, Suite 750, Chicago, IL 60642",
     contacts: ["+1 847 254 7320"],
     email: "info@gglusa.us"
+  },{
+  code: "sa",
+  name: "Saudi Arabia",
+  lat: 23.8859,
+  lng: 45.0792,
+  cities: [{
+    name: "Dammam",
+    lat: 26.4207,
+    lng: 50.0888,
+    address: "Building No.2817, Secondary No9403, King Faisal Road, Al Tubebayshi Dist, Dammam, KSA 32233",
+    contacts: ["+966 13 343 0003"]
   }, {
+    name: "Riyadh",
+    lat: 24.7136,
+    lng: 46.6753,
+    address: "Room No. T18, Rail Business Centre, Bldg No. 3823, Omar Aimukhtar St, Thulaim, Riyadh 11332",
+    contacts: ["+966 11295 0020"]
+  }, {
+    name: "Jeddah",
+    lat: 21.4858,
+    lng: 39.1925,
+    address: "Al-Madinah Al-Munawarah Road, Al Sharafeyah, Jeddah 4542 -22234, Kingdom of Saudi Arabia",
+    contacts: ["+966 12 578 0874"]
+  }]
+}, {
     name: "New York",
     lat: 37.4545,
     lng: -122.1818,
@@ -233,6 +258,18 @@ const countries = [{
     address: "2250 South Central Avenue Compton, CA 90220",
     contacts: ["+1 310 928 3903"],
     email: "info@gglusa.us"
+  }]
+},{
+  code: "gb",
+  name: "United Kingdom (UK)",
+  lat: 55.3781,
+  lng: -3.4360,
+  cities: [{
+    name: "London",
+    lat: 51.5074,
+    lng: -0.1278,
+    address: "167-169 Great Portland Street 5th Floor, London W1W 5PF, United Kingdom",
+    contacts: ["+44 (0) 203 393 9508"]
   }]
 }, {
   code: "au",
