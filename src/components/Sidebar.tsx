@@ -80,19 +80,6 @@ const countries = [{
     contacts: ["0974 33622555"]
   }]
 },{
-  code: "bd",
-  name: "Bangladesh",
-  lat: 23.8103,
-  lng: 90.4125,
-  cities: [{
-    name: "Dhaka",
-    lat: 23.8103,
-    lng: 90.4125,
-    address: "ID #9-N (New), 9-M(Old-N), 9th floor, Tower 1, Police Plaza Concord No.2, Road # 144, Gulshan Model Town, Dhaka 1215, Bangladesh",
-    contacts: ["+880 1716 620989"],
-    email: "info@globalconsol.com"
-  }]
-}, {
   code: "sa",
   name: "Saudi Arabia",
   lat: 26.4207,
