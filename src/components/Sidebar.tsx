@@ -14,12 +14,12 @@ interface ContactSidebarProps {
 const countries = [{
   code: "in",
   name: "India",
-  lat: 22.3511,
-  lng: 78.6677,
+  lat: 19.00745,
+  lng: 73.03271,
   cities: [{
     name: "Mumbai",
-    lat: 17.3839,
-    lng: 78.4539,
+    lat: 19.00745,
+    lng: 73.03271,
     address: "407, mayuresh planet, plot no - 42 & 43, sector-15, cbd belapur, navi mumbai, maharashtra, 400614",
     contacts: ["Export customer service: +91 2245174102, +91 2245174109, +91 2245174118", "Export docs team: +91 2245174103, +91 2245174105", "Import docs team: +91 2245174104, +91 2245174106", "Import customer service: +91 2245174113, +91 2245174110, +91 2245174107, +91 2245174112"]
   }, {
