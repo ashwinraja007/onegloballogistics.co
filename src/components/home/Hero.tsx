@@ -28,7 +28,7 @@ const Hero = () => {
   }, [sliderImages.length]);
 
   const portalLinks = [
-    { icon: <Users className="w-5 h-5" />, title: 'ConsolMate', url: '', external: true },
+    { icon: <Users className="w-5 h-5" />, title: 'Customer Portal', url: '', external: true },
     { icon: <UserCircle className="w-5 h-5" />, title: 'Partner Portal', url: '', external: true },
     { icon: <SearchCode className="w-5 h-5" />, title: 'Tracking', url: '', external: true },
     { icon: <Ship className="w-5 h-5" />, title: 'Sailing Schedule', url: '', external: true },
