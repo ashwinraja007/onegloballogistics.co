@@ -21,9 +21,9 @@ import CustomsClearance from "./pages/services/CustomsClearance";
 import Transportation from "./pages/services/Transportation";
 import OceanFreight from "./pages/services/OceanFreight";
 import AirFreight from "./pages/services/AirFreight";
-import ThreePL from "./pages/services/ThreePL";
 import GlobalPresence from "./pages/GlobalPresence";
 import { ScrollToTop } from "./components/common/ScrollToTop";
+import { RouteSEO } from "./components/common/RouteSEO";
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
@@ -34,6 +34,7 @@ function App() {
       <TooltipProvider>
         <BrowserRouter>
           <ScrollToTop />
+          <RouteSEO />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />
@@ -54,7 +55,6 @@ function App() {
             <Route path="/services/road-freight" element={<Transportation />} />
             <Route path="/services/sea-freight" element={<OceanFreight />} />
             <Route path="/services/air-freight" element={<AirFreight />} />
-            <Route path="/services/3pl" element={<ThreePL />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
